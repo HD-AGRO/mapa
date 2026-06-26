@@ -1,11 +1,9 @@
-const CACHE = 'hdagro-v1';
+const CACHE = 'hdagro-v3';
 const ASSETS = ['/mapa/', '/mapa/index.html'];
 
 self.addEventListener('install', function(e) {
   e.waitUntil(
-    caches.open(CACHE).then(function(c) {
-      return c.addAll(ASSETS);
-    })
+    caches.open(CACHE).then(function(c) { return c.addAll(ASSETS); })
   );
   self.skipWaiting();
 });
@@ -15,9 +13,7 @@ self.addEventListener('activate', function(e) {
     caches.keys().then(function(keys) {
       return Promise.all(keys.filter(function(k) {
         return k !== CACHE;
-      }).map(function(k) {
-        return caches.delete(k);
-      }));
+      }).map(function(k) { return caches.delete(k); }));
     })
   );
   self.clients.claim();
@@ -25,7 +21,7 @@ self.addEventListener('activate', function(e) {
 
 self.addEventListener('fetch', function(e) {
   e.respondWith(
-    fetch(e.request).then(function(res) {
+    fetch(e.request, {cache: 'no-cache'}).then(function(res) {
       var clone = res.clone();
       caches.open(CACHE).then(function(c) { c.put(e.request, clone); });
       return res;
