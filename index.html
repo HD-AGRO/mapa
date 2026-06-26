@@ -161,6 +161,16 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
     <span class="sc" id="sc"></span>
   </div>
 </div>
+  <div class="tg"><span class="tl">Cliente</span>
+    <select class="sel" id="sel-cli" onchange="fCli(this.value)" style="max-width:130px;">
+      <option value="">Todos</option><option value="ALFREDO GÓIS">Alfredo Góis</option><option value="ANTONIO OLAVO FRAGA CARVALHO">Antonio Olavo Fraga Carvalho</option><option value="ANTONIO RIVANILDO GAMA SILVA">Antonio Rivanildo Gama Silva</option><option value="CARMELITA VIRGENS">Carmelita Virgens</option><option value="CHARLES DE JESUS ROSÁRIO">Charles De Jesus Rosário</option><option value="CLAUDIANO MENEZES DOS SANTOS">Claudiano Menezes Dos Santos</option><option value="CRIZANTO ROBERTO ROCHA">Crizanto Roberto Rocha</option><option value="DOUGLAS CARDOSO">Douglas Cardoso</option><option value="DOUGLAS LOCK">Douglas Lock</option><option value="EDINEI SANTANA">Edinei Santana</option><option value="EDIVALDO ALVES DA SILVA">Edivaldo Alves Da Silva</option><option value="EDNALDO MOREIRA DA SILVA">Ednaldo Moreira Da Silva</option><option value="ELIZEU SANTOS">Elizeu Santos</option><option value="FLÁVIO GÓIS">Flávio Góis</option><option value="IDINEI SANTOS NASCIMENTO">Idinei Santos Nascimento</option><option value="JANDIR SILVA DO NASCIMENTO">Jandir Silva Do Nascimento</option><option value="JORGE OLIVEIRA">Jorge Oliveira</option><option value="JOSÉ DE ANA">José De Ana</option><option value="JOSÉ FRAGA">José Fraga</option><option value="JOSÉ HAMILTON FRAGA">José Hamilton Fraga</option><option value="JOSÉ HELIO NASCIMENTO SANTOS">José Helio Nascimento Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS">José Lourenço Dos Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS (OUTRO) 111">José Lourenço Dos Santos (Outro) 111</option><option value="JOÃO ANTENOR CAVALCANTE">João Antenor Cavalcante</option><option value="JOÃO PINHEIRO JUNIOR">João Pinheiro Junior</option><option value="JOÃO TUCANO FILHO">João Tucano Filho</option><option value="LUAN FONTES">Luan Fontes</option><option value="MANOEL MESSIAS">Manoel Messias</option><option value="NETO">Neto</option><option value="RANIERE PIMENTEL DE SANTANA">Raniere Pimentel De Santana</option><option value="RIKSON DOS SANTOS SILVA">Rikson Dos Santos Silva</option><option value="ROBERTO CHIBATTA">Roberto Chibatta</option><option value="SALUSTIANO">Salustiano</option><option value="SILVA E DUARTE LTDA (TUTA e LAERCIO)">Silva E Duarte Ltda (Tuta E Laercio)</option><option value="SÉRGIO GÓIS">Sérgio Góis</option><option value="SÍLVIO MENEZES TAVARES">Sílvio Menezes Tavares</option><option value="WILLIAN FRAGA">Willian Fraga</option>
+    </select>
+  </div>
+  <div class="tg"><span class="tl">Avaliação</span>
+    <select class="sel" id="sel-av" onchange="fAv(this.value)">
+      <option value="">Todas</option><option value="AV1_PENDENTE">⏳ AV1 Pendente</option><option value="AV1_ATRASADA">🔴 AV1 Atrasada</option><option value="AV2_PENDENTE">⏳ AV2 Pendente</option><option value="AV2_ATRASADA">🔴 AV2 Atrasada</option><option value="AV2_OK">✅ AV2 Realizada</option><option value="AV3_PENDENTE">⏳ AV3 Pendente</option><option value="SEM_DATA">— Sem data</option><option value="AGUARDANDO">⏳ Aguardando</option>
+    </select>
+  </div>
 <div id="mwrap">
   <div id="map"></div>
   <div id="status-bar">
@@ -220,7 +230,7 @@ function norm(s){return s.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f
 var AN=new Set(ATIVOS.map(function(a){return norm(a.name);}));
 var TBM={};
 TESTS.forEach(function(t){var k=norm(t.municipio);if(!TBM[k])TBM[k]=[];TBM[k].push(t);});
-var F={estado:'ALL',hibrido:'',distribuidor:''};
+var F={estado:'ALL',hibrido:'',distribuidor:'',cliente:'',av:''};
 
 document.addEventListener('DOMContentLoaded',function(){
   var map=L.map('map',{center:[-10.5,-38.5],zoom:7,zoomControl:false,preferCanvas:true});
@@ -249,6 +259,8 @@ document.addEventListener('DOMContentLoaded',function(){
       if(!t.lat||!t.lng)return;
       if(F.hibrido&&t.hibrido!==F.hibrido)return;
       if(F.distribuidor&&t.distribuidor!==F.distribuidor)return;
+      if(F.cliente&&t.produtor!==F.cliente)return;
+      if(F.av&&t.status!==F.av)return;
       if(F.estado!=='ALL'&&t.uf!==F.estado)return;
       var sc2=ST_COLOR[t.status]||'#6b7280';
       var isReal=t.has_real_coords;
@@ -292,6 +304,8 @@ document.addEventListener('DOMContentLoaded',function(){
   };
   window.fHib=function(v){F.hibrido=v;buildTestMarkers();};
   window.fDist=function(v){F.distribuidor=v;buildTestMarkers();};
+  window.fCli=function(v){F.cliente=v;buildTestMarkers();if(v){var tm=TESTS.filter(function(t){return t.produtor===v&&t.lat;});if(tm.length){var lats=tm.map(function(t){return t.lat;}),lngs=tm.map(function(t){return t.lng;});map.fitBounds([[Math.min.apply(null,lats),Math.min.apply(null,lngs)],[Math.max.apply(null,lats),Math.max.apply(null,lngs)]],{padding:[80,80],maxZoom:12});}else if(TESTS.filter(function(t){return t.produtor===v;}).length){var t0=TESTS.filter(function(t){return t.produtor===v&&t.lat;})[0]||TESTS.filter(function(t){return t.produtor===v;})[0];if(t0&&t0.lat)map.flyTo([t0.lat,t0.lng],11,{duration:0.7});}}};
+  window.fAv=function(v){F.av=v;buildTestMarkers();};
 
   window.doSrch=function(v){
     var el=document.getElementById('sc');
