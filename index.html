@@ -121,6 +121,23 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,238,0.7);}70%{box-shadow:0 0 0 7px rgba(34,211,238,0);}100%{box-shadow:0 0 0 0 rgba(34,211,238,0);}}
 .tmi{animation:pulse 2s infinite;}
 ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--sf);}::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px;}
+/* Portrait mode */
+@media (orientation: portrait) {
+  .hrow1{flex-wrap:wrap;padding:4px 8px;}
+  .hrow2{padding:3px 6px;gap:3px;}
+  .hstats{gap:3px;}
+  .hcard{padding:2px 6px;}
+  .hcn{font-size:13px;}
+  .fsel{font-size:8px;max-width:90px;}
+  .fchip{font-size:9px;padding:2px 6px;}
+  .srch-i{width:120px;}
+  #pnl{width:100%;height:55%;top:auto;bottom:0;transform:translateY(100%);border-left:none;border-top:1px solid var(--b2);}
+  #pnl.open{transform:translateY(0);}
+  #sbar{flex-wrap:wrap;gap:3px;top:6px;}
+  .sb{font-size:9px;padding:2px 6px;}
+  #leg{font-size:8px;min-width:140px;}
+  .lr{font-size:8px;}
+}
 </style>
 
   <!-- PWA -->
@@ -386,7 +403,7 @@ document.addEventListener('DOMContentLoaded',function(){
     var th='';
     if(mTf.length){
       th+='<div class="ps"><div class="pst">📊 Resumo</div><div class="pr"><span class="prl">Testes</span><span class="prv">'+mTf.length+'</span></div>'+(area_tot?'<div class="pr"><span class="prl">Área total</span><span class="prv">'+area_tot+' ha</span></div>':'')+'</div>';
-      mTf.forEach(function(t){th+='<div class="tc"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><div class="tct" style="margin:0;">🌱 '+t.produtor+'</div>'+statusBadge(t)+'</div>'+avProgress(t)+'<div class="tr"><span class="trl">Fazenda</span><span class="trv">'+t.fazenda+'</span></div><div class="tr"><span class="trl">Híbrido</span><span class="trv trh">'+t.hibrido+'</span></div><div class="pr"><span class="prl">Área</span><span class="trv">'+(t.area_ha||'—')+' ha</span></div><div class="tr"><span class="trl">Plantio</span><span class="trv">'+t.data_plantio+(t.dias_plantio?' ('+t.dias_plantio+'d)':'')+'</span></div>'+(t.distribuidor?'<div class="tr"><span class="trl">Dist.</span><span class="trv">'+t.distribuidor+'</span></div>':'')+(t.av1?'<div class="tr"><span class="trl">AV1 ✅</span><span class="trv" style="color:#22c55e;">'+t.av1+(t.av1_dias?' ('+t.av1_dias+'d)':'')+'</span></div>':'')+(t.av2?'<div class="tr"><span class="trl">AV2 ✅</span><span class="trv" style="color:#22c55e;">'+t.av2+(t.av2_dias?' ('+t.av2_dias+'d)':'')+'</span></div>':'')+(t.lat?'<a class="rb" href="https://www.google.com/maps/dir/?api=1&destination='+t.lat+','+t.lng+'" target="_blank">🗺️ Rota</a>':'')+(t.pasta_onedrive?'<a class="rb gold" href="'+t.pasta_onedrive+'" target="_blank">📁 OneDrive</a>':'')+'</div>';});
+      mTf.forEach(function(t){th+='<div class="tc"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><div class="tct" style="margin:0;">🌱 '+t.produtor+'</div>'+statusBadge(t)+'</div>'+avProgress(t)+'<div class="tr"><span class="trl">Fazenda</span><span class="trv">'+t.fazenda+'</span></div><div class="tr"><span class="trl">Híbrido</span><span class="trv trh">'+t.hibrido+'</span></div><div class="pr"><span class="prl">Área</span><span class="trv">'+(t.area_ha||'—')+' ha</span></div><div class="tr"><span class="trl">Plantio</span><span class="trv">'+t.data_plantio+(t.dias_plantio?' ('+t.dias_plantio+'d)':'')+'</span></div>'+(t.distribuidor?'<div class="tr"><span class="trl">Dist.</span><span class="trv">'+t.distribuidor+'</span></div>':'')+(t.ensaio?'<div class="tr"><span class="trl">Ensaio</span><span class="trv" style="color:'+(t.ensaio==="GDE"?'var(--ts)':t.ensaio==="SBS"?'var(--warn)':"var(--dm)")+';font-weight:700;">'+t.ensaio+'</span></div>':'')+(t.av1?'<div class="tr"><span class="trl">AV1 ✅</span><span class="trv" style="color:#22c55e;">'+t.av1+(t.av1_dias?' ('+t.av1_dias+'d)':'')+'</span></div>':'')+(t.av2?'<div class="tr"><span class="trl">AV2 ✅</span><span class="trv" style="color:#22c55e;">'+t.av2+(t.av2_dias?' ('+t.av2_dias+'d)':'')+'</span></div>':'')+(t.lat?'<a class="rb" href="https://www.google.com/maps/dir/?api=1&destination='+t.lat+','+t.lng+'" target="_blank">🗺️ Rota</a>':'')+(t.pasta_onedrive?'<a class="rb gold" href="'+t.pasta_onedrive+'" target="_blank">📁 OneDrive</a>':'')+'</div>';});
     }else th='<div class="notest">Nenhum teste'+(F.cliente||F.hibrido||F.distribuidor||F.lpht||F.ensaio||F.av_groups.size>0?' com filtros ativos':'')+' neste município</div>';
     document.getElementById('p-body').innerHTML=tag+(MUN_HA[name]?'<div class="ps" style="margin-top:9px"><div class="pst">🌽 Área de Milho</div><div class="pr"><span class="prl">Área estimada</span><span class="prv" style="color:var(--gold);font-size:14px;font-weight:800;">'+MUN_HA[name].toLocaleString()+' ha</span></div></div>':'')+
       '<div class="ps"><div class="pst">Localização</div><div class="pr"><span class="prl">Estado</span><span class="prv" style="color:'+c+'">'+SN[est]+'</span></div><div class="pr"><span class="prl">Status</span><span class="prv">'+(isAt?'🔥 Ativo':'📍 Território')+'</span></div></div><div class="ps"><div class="pst">🌱 Testes ForSeed</div>'+th+'</div>';
@@ -404,7 +421,7 @@ document.addEventListener('DOMContentLoaded',function(){
       '<div class="ps" style="margin-top:9px"><div class="pst">🌽 Plantio</div>'+
       '<div class="pr"><span class="prl">Data</span><span class="prv">'+t.data_plantio+(t.dias_plantio?' — <span style="color:var(--ts)">'+t.dias_plantio+' dias</span>':'')+'</span></div>'+
       '<div class="pr"><span class="prl">Híbrido</span><span class="prv" style="color:'+TS_C+';font-weight:700;">'+t.hibrido+'</span></div>'+
-      '<div class="pr"><span class="prl">Ensaio</span><span class="prv">'+t.ensaio+'</span></div>'+
+      '<div class="pr"><span class="prl">Ensaio</span><span class="prv" style="color:'+(t.ensaio==="GDE"?'var(--ts)':t.ensaio==="SBS"?'var(--warn)':"var(--dm)")+';font-weight:700;">'+t.ensaio+'</span></div>'+
       '<div class="pr"><span class="prl">LPHT</span><span class="prv">'+(t.lpht?'✅ SIM':'— NÃO')+'</span></div>'+
       (t.area_ha?'<div class="pr"><span class="prl">Área</span><span class="prv">'+t.area_ha+' ha</span></div>':'')+
       (t.vol_sc?'<div class="pr"><span class="prl">Vol. sacas</span><span class="prv">'+t.vol_sc+' sc</span></div>':'')+
