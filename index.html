@@ -212,6 +212,8 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
   <button class="layer-btn on" id="b-terr" onclick="tg('terr')">Território</button>
   <button class="layer-btn on" id="b-ts" onclick="tg('ts')" style="color:var(--ts);">🌱 Testes</button>
   <button class="layer-btn on" id="b-bd" onclick="tg('bd')">Divisas</button>
+  <button class="layer-btn on" id="ln-at" onclick="tgN('at')">Nomes Ativos</button>
+  <button class="layer-btn on" id="ln-tr" onclick="tgN('tr')">Nomes Território</button>
   <button class="layer-btn on" id="b-sat" onclick="tgSat()">Satélite</button>
   <div class="f-sep"></div>
   <!-- Search -->
@@ -447,8 +449,20 @@ document.addEventListener('DOMContentLoaded',function(){
   ATGEO.features.forEach(function(f){var name=f.properties.name,e=f.properties.estado,c=SC[e]||'#fff';var lbl=L.marker(cen(f),{icon:L.divIcon({className:'ll-at',html:'<span style="color:'+c+';text-shadow:0 0 4px #000,0 0 6px #000">'+name+'</span>',iconAnchor:[0,0]}),interactive:false,zIndexOffset:1200});lbl._lt='at';lG.at.addLayer(lbl);});
   var terrAll=TALGEO.features.concat(TBAGEO.features).concat(TPEGEO.features);
   terrAll.forEach(function(f){var name=f.properties.name,id=f.properties.id||'',e=f.properties.estado;if(!e){if(id.startsWith('27'))e='AL';else if(id.startsWith('29'))e='BA';else e='PE';}var c=SC[e]||'#fff';var lbl=L.marker(cen(f),{icon:L.divIcon({className:'ll-tr',html:'<span style="color:'+c+';opacity:0.5;text-shadow:0 0 2px #000">'+name+'</span>',iconAnchor:[0,0]}),interactive:false,zIndexOffset:300});lbl._lt=e.toLowerCase();lG[e.toLowerCase()].addLayer(lbl);});
-  function updL(){var z=map.getZoom();Object.keys(lG).forEach(function(k){lG[k].eachLayer(function(l){var el=l.getElement?l.getElement():null;if(!el)return;if(k==='at')el.style.display=lV[k]?'':'none';else el.style.display=(lV[k]&&z>=7)?'':'none';});});}
+  function updL(){var z=map.getZoom();Object.keys(lG).forEach(function(k){lG[k].eachLayer(function(l){var el=l.getElement?l.getElement():null;if(!el)return;var nv=window.lNV||{at:true,tr:true};if(k==='at'){el.style.display=(nv.at)?'':'none';}else{el.style.display=(nv.tr&&z>=7)?'':'none';}});});}
   window.updL=updL;
+  var lNV={at:true,tr:true};
+  window.tgN=function(k){lNV[k]=!lNV[k];document.getElementById('ln-'+k).classList.toggle('on',lNV[k]);
+    Object.keys(lG).forEach(function(g){lG[g].eachLayer(function(l){
+      var el=l.getElement?l.getElement():null;if(!el)return;
+      var isAt=(g==='at');
+      if(isAt&&!lNV.at){el.style.display='none';return;}
+      if(!isAt&&!lNV.tr){el.style.display='none';return;}
+      // re-apply zoom logic
+      if(g==='at')el.style.display=lV[k]||true?'':'none';
+      else el.style.display=(map.getZoom()>=7)?'':'none';
+    });});
+  };
   map.on('zoomend',updL);updL();
   window.tgL=function(k){lV[k]=!lV[k];updL();};
 
