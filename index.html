@@ -225,7 +225,11 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
       <div class="hcard">
         <span class="hcard-t">🌾</span>
         <span class="hcn" style="color:var(--green)">50</span><span class="hcl">testes</span>
-        <span class="hcn" style="color:var(--gold)">37</span><span class="hcl">clientes</span>
+        <span class="hcn" style="color:var(--gold)">37</span><span class="hcl">cli. teste</span>
+        <span style="font-size:8px;color:var(--dm);margin:0 2px;">|</span>
+        <span class="hcn" style="color:var(--ok)">30</span><span class="hcl">BA</span>
+        <span class="hcn" style="color:var(--al)">7</span><span class="hcl">AL</span>
+        <span class="hcn" style="color:var(--pe)">0</span><span class="hcl">PE</span>
       </div>
       <div class="hsep"></div>
       <!-- Avaliações -->
@@ -252,15 +256,15 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
     <!-- Estado chips com ha info -->
     <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
       <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
-      <span style="font-size:7px;color:var(--al);text-align:center;line-height:1.1;">25k ha<br><span style="color:var(--dm);" id="ha-cli-al">3,640ha cli</span></span>
+      <span style="font-size:7px;color:var(--al);text-align:center;line-height:1.1;">25k ha · 7 cli<br><span style="color:var(--dm);" id="ha-cli-al">3,640ha testados</span></span>
     </div>
     <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
       <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
-      <span style="font-size:7px;color:var(--ba);text-align:center;line-height:1.1;">100k ha<br><span style="color:var(--dm);" id="ha-cli-ba">12,840ha cli</span></span>
+      <span style="font-size:7px;color:var(--ba);text-align:center;line-height:1.1;">100k ha · 30 cli<br><span style="color:var(--dm);" id="ha-cli-ba">12,840ha testados</span></span>
     </div>
     <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
       <button class="fchip st-pe" id="chip-pe" onclick="toggleChip('estado','PE',this)">PE</button>
-      <span style="font-size:7px;color:var(--pe);text-align:center;line-height:1.1;">3k ha<br><span style="color:var(--dm);" id="ha-cli-pe">0ha cli</span></span>
+      <span style="font-size:7px;color:var(--pe);text-align:center;line-height:1.1;">3k ha · 0 cli<br><span style="color:var(--dm);" id="ha-cli-pe">0ha testados</span></span>
     </div>
     <div class="fsep"></div>
     <!-- AV status chips — só bolinhas coloridas -->
@@ -423,9 +427,9 @@ function applyFilters(){
   var elBA=document.getElementById('ha-cli-ba');
   var elAL=document.getElementById('ha-cli-al');
   var elPE=document.getElementById('ha-cli-pe');
-  if(elBA)elBA.textContent=(stArea.BA?stArea.BA.toLocaleString()+'ha cli':'—');
-  if(elAL)elAL.textContent=(stArea.AL?stArea.AL.toLocaleString()+'ha cli':'—');
-  if(elPE)elPE.textContent=(stArea.PE?stArea.PE.toLocaleString()+'ha cli':'—');
+  if(elBA)elBA.textContent=(stArea.BA?stArea.BA.toLocaleString()+'ha testados':'—');
+  if(elAL)elAL.textContent=(stArea.AL?stArea.AL.toLocaleString()+'ha testados':'—');
+  if(elPE)elPE.textContent=(stArea.PE?stArea.PE.toLocaleString()+'ha testados':'—');
   var sc2=document.getElementById('sc');if(sc2&&F.busca)sc2.textContent=matched.length?'🌱'+matched.length:'';else if(sc2)sc2.textContent='';
   updL();
 }
@@ -498,10 +502,10 @@ document.addEventListener('DOMContentLoaded',function(){
     var msColor=ms>=50?'var(--ok)':ms>=20?'var(--warn)':'var(--danger)';
     if(!total&&!cliArea)return '';
     return '<div class="ps" style="margin-top:9px">'+
-      '<div class="pst">🌽 Área de Milho · Market Share</div>'+
+      '<div class="pst">🌽 Área Milho · Penetração de Testes</div>'+
       '<div class="pr"><span class="prl">Área total município</span><span class="prv" style="color:var(--gold);font-size:13px;font-weight:800;">'+(total?total.toLocaleString()+' ha':'—')+'</span></div>'+
       (cliArea?'<div class="pr"><span class="prl">Área clientes ForSeed</span><span class="prv" style="color:var(--green);font-weight:700;">'+cliArea.toLocaleString()+' ha ('+cliCount+' cli)</span></div>':'<div class="pr"><span class="prl">Área clientes ForSeed</span><span class="prv" style="color:var(--dm);">Sem dados</span></div>')+
-      (total&&cliArea?'<div class="pr"><span class="prl">Market Share</span><span class="prv" style="color:'+msColor+';font-size:14px;font-weight:900;">'+ms+'%</span></div>':'')+
+      (total&&cliArea?'<div class="pr"><span class="prl">Penetração área</span><span class="prv" style="color:'+msColor+';font-size:14px;font-weight:900;">'+ms+'%</span></div>':'')+
       (total&&cliArea?'<div style="height:6px;background:var(--b2);border-radius:3px;margin:6px 0 2px;overflow:hidden;"><div style="height:100%;width:'+Math.min(ms,100)+'%;background:'+msColor+';border-radius:3px;transition:width 0.4s;"></div></div>':'')+
     '</div>';
   }())+
