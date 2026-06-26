@@ -188,31 +188,56 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
     <div class="brand">
       <div class="bdg">HD AGRO</div>
       <div style="display:flex;flex-direction:column;gap:1px;">
-        <div class="brt" style="font-size:11px;color:var(--tx);">Território · Nordeste</div>
-        <div style="font-size:9px;color:var(--green);letter-spacing:1px;font-weight:600;">ForSeed · Decida pelo Certo</div>
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px;flex-shrink:0;">
+  <circle cx="60" cy="60" r="58" fill="none" stroke="white" stroke-width="4"/>
+  <circle cx="60" cy="60" r="54" fill="#0f2830"/>
+  <!-- ForSeed icon: overlapping leaf/seed shapes -->
+  <path d="M60 20 Q90 35 85 65 Q75 85 60 90 Q45 85 35 65 Q30 35 60 20Z" fill="#6abf8a" opacity="0.9"/>
+  <path d="M60 30 Q82 50 75 70 Q65 88 60 90 Q50 75 48 55 Q48 35 60 30Z" fill="#f5c020" opacity="0.85"/>
+  <path d="M60 35 Q75 55 68 72 Q62 85 60 90 Q55 78 54 62 Q53 45 60 35Z" fill="#0f2830" opacity="0.4"/>
+  <circle cx="60" cy="60" r="12" fill="white" opacity="0.15"/>
+</svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px;">
+        <div style="font-size:11px;font-weight:700;color:var(--tx);letter-spacing:1px;">NORDESTE</div>
+        <div style="font-size:9px;color:var(--green);letter-spacing:0.5px;">BA · AL · PE</div>
       </div>
     </div>
     <div class="hstats">
+      <!-- Contrato -->
       <div class="hcard">
-        <span class="hcard-t">📋</span>
+        <span class="hcard-t">🗺️</span>
         <span class="hcn" style="color:var(--al)">102</span><span class="hcl">AL</span>
         <span class="hcn" style="color:var(--ba)">58</span><span class="hcl">BA</span>
         <span class="hcn" style="color:var(--pe)">120</span><span class="hcl">PE</span>
+        <span style="font-size:8px;color:var(--dm);margin-left:2px;">mun.</span>
       </div>
+      <!-- Ativos -->
       <div class="hcard">
-        <span class="hcard-t">🔥</span>
+        <span class="hcard-t">🌽</span>
         <span class="hcn" style="color:var(--al)">15</span><span class="hcl">AL</span>
         <span class="hcn" style="color:var(--ba)">24</span><span class="hcl">BA</span>
         <span class="hcn" style="color:var(--pe)">3</span><span class="hcl">PE</span>
+        <span style="font-size:8px;color:var(--dm);margin-left:2px;">ativos</span>
       </div>
       <div class="hsep"></div>
+      <!-- Testes + Clientes -->
       <div class="hcard">
-        <span class="hcard-t">🌱</span>
-        <span class="hcn" style="color:var(--ok)"   id="hc-ok">13</span><span class="hcl">✅</span>
-        <span class="hcn" style="color:var(--warn)"  id="hc-pend">17</span><span class="hcl">⏳</span>
-        <span class="hcn" style="color:var(--danger)"id="hc-atrs">11</span><span class="hcl">🔴</span>
-        <span class="hcn" style="color:var(--gray)"  id="hc-sem">9</span><span class="hcl">—</span>
+        <span class="hcard-t">🌾</span>
+        <span class="hcn" style="color:var(--green)">50</span><span class="hcl">testes</span>
+        <span class="hcn" style="color:var(--gold)">37</span><span class="hcl">clientes</span>
       </div>
+      <div class="hsep"></div>
+      <!-- Avaliações -->
+      <div class="hcard">
+        <span class="hcard-t">📊</span>
+        <span class="hcn" style="color:var(--ok)"   id="hc-ok">0</span><span class="hcl" style="color:var(--ok)">●</span>
+        <span class="hcn" style="color:var(--warn)"  id="hc-pend">0</span><span class="hcl" style="color:var(--warn)">●</span>
+        <span class="hcn" style="color:var(--danger)"id="hc-atrs">0</span><span class="hcl" style="color:var(--danger)">●</span>
+        <span class="hcn" style="color:var(--gray)"  id="hc-sem">0</span><span class="hcl" style="color:var(--gray)">●</span>
+      </div>
+      <div class="hsep"></div>
+      <!-- Milho ha -->
       <div class="hcard">
         <span class="hcard-t">🌽</span>
         <span class="hcn" style="color:var(--ba)">100k</span><span class="hcl">BA</span>
@@ -224,14 +249,25 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
   </div>
   <!-- ROW 2: filters -->
   <div class="hrow2">
-    <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
-    <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
-    <button class="fchip st-pe" id="chip-pe" onclick="toggleChip('estado','PE',this)">PE</button>
+    <!-- Estado chips com ha info -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
+      <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
+      <span style="font-size:7px;color:var(--al);text-align:center;line-height:1.1;">25k ha<br><span style="color:var(--dm);">3,640ha cli</span></span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
+      <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
+      <span style="font-size:7px;color:var(--ba);text-align:center;line-height:1.1;">100k ha<br><span style="color:var(--dm);">12,170ha cli</span></span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
+      <button class="fchip st-pe" id="chip-pe" onclick="toggleChip('estado','PE',this)">PE</button>
+      <span style="font-size:7px;color:var(--pe);text-align:center;line-height:1.1;">3k ha<br><span style="color:var(--dm);">0ha cli</span></span>
+    </div>
     <div class="fsep"></div>
-    <button class="fchip av-ok"     id="chip-ok"   onclick="toggleChip('av_group','OK',this)">✅ Em dia</button>
-    <button class="fchip av-warn"   id="chip-pend" onclick="toggleChip('av_group','PEND',this)">⏳ Pend.</button>
-    <button class="fchip av-danger" id="chip-atrs" onclick="toggleChip('av_group','ATRS',this)">🚨 Atras.</button>
-    <button class="fchip av-gray"   id="chip-sem"  onclick="toggleChip('av_group','SEM',this)">— S/data</button>
+    <!-- AV status chips — só bolinhas coloridas -->
+    <button class="fchip av-ok"     id="chip-ok"   onclick="toggleChip('av_group','OK',this)" title="Em dia">● Em dia</button>
+    <button class="fchip av-warn"   id="chip-pend" onclick="toggleChip('av_group','PEND',this)" title="Pendente">● Pend.</button>
+    <button class="fchip av-danger" id="chip-atrs" onclick="toggleChip('av_group','ATRS',this)" title="Atrasada">● Atras.</button>
+    <button class="fchip av-gray"   id="chip-sem"  onclick="toggleChip('av_group','SEM',this)" title="Sem data">● S/data</button>
     <div class="fsep"></div>
     <select class="fsel" id="sel-cli"    onchange="setFilter('cliente',this.value)"      title="Cliente"><option value="">🧑‍🌾 Cliente</option><option value="ALFREDO GÓIS">Alfredo Góis</option><option value="ANTONIO OLAVO FRAGA CARVALHO">Antonio Olavo Fraga Carvalho</option><option value="ANTONIO RIVANILDO GAMA SILVA">Antonio Rivanildo Gama Silva</option><option value="CARMELITA VIRGENS">Carmelita Virgens</option><option value="CHARLES DE JESUS ROSÁRIO">Charles De Jesus Rosário</option><option value="CLAUDIANO MENEZES DOS SANTOS">Claudiano Menezes Dos Santos</option><option value="CRIZANTO ROBERTO ROCHA">Crizanto Roberto Rocha</option><option value="DOUGLAS CARDOSO">Douglas Cardoso</option><option value="DOUGLAS LOCK">Douglas Lock</option><option value="EDINEI SANTANA">Edinei Santana</option><option value="EDIVALDO ALVES DA SILVA">Edivaldo Alves Da Silva</option><option value="EDNALDO MOREIRA DA SILVA">Ednaldo Moreira Da Silva</option><option value="ELIZEU SANTOS">Elizeu Santos</option><option value="FLÁVIO GÓIS">Flávio Góis</option><option value="IDINEI SANTOS NASCIMENTO">Idinei Santos Nascimento</option><option value="JANDIR SILVA DO NASCIMENTO">Jandir Silva Do Nascimento</option><option value="JORGE OLIVEIRA">Jorge Oliveira</option><option value="JOSÉ DE ANA">José De Ana</option><option value="JOSÉ FRAGA">José Fraga</option><option value="JOSÉ HAMILTON FRAGA">José Hamilton Fraga</option><option value="JOSÉ HELIO NASCIMENTO SANTOS">José Helio Nascimento Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS">José Lourenço Dos Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS (OUTRO) 111">José Lourenço Dos Santos (Outro) 111</option><option value="JOÃO ANTENOR CAVALCANTE">João Antenor Cavalcante</option><option value="JOÃO PINHEIRO JUNIOR">João Pinheiro Junior</option><option value="JOÃO TUCANO FILHO">João Tucano Filho</option><option value="LUAN FONTES">Luan Fontes</option><option value="MANOEL MESSIAS">Manoel Messias</option><option value="NETO">Neto</option><option value="RANIERE PIMENTEL DE SANTANA">Raniere Pimentel De Santana</option><option value="RIKSON DOS SANTOS SILVA">Rikson Dos Santos Silva</option><option value="ROBERTO CHIBATTA">Roberto Chibatta</option><option value="SALUSTIANO">Salustiano</option><option value="SILVA E DUARTE LTDA (TUTA e LAERCIO)">Silva E Duarte Ltda (Tuta E Laercio)</option><option value="SÉRGIO GÓIS">Sérgio Góis</option><option value="SÍLVIO MENEZES TAVARES">Sílvio Menezes Tavares</option><option value="WILLIAN FRAGA">Willian Fraga</option></select>
     <select class="fsel" id="sel-hib"    onchange="setFilter('hibrido',this.value)"      title="Híbrido"><option value="">🌽 Híbrido</option><option value="FS1503PWU">FS1503PWU</option><option value="FS1680PWU">FS1680PWU</option><option value="FS560PWU">FS560PWU</option><option value="FS566PWU">FS566PWU</option><option value="FS650PWU">FS650PWU</option><option value="FS656PWU">FS656PWU</option><option value="FS670PWU">FS670PWU</option><option value="FS695PWU">FS695PWU</option><option value="FSCOD1918PWU">FSCOD1918PWU</option></select>
@@ -241,7 +277,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
     <div class="fsep"></div>
     <button class="lbtn on" id="b-at"   onclick="tg('at')">🌽 Ativos</button>
     <button class="lbtn on" id="b-terr" onclick="tg('terr')">Território</button>
-    <button class="lbtn on" id="b-ts"   onclick="tg('ts')" style="color:var(--ts)">🌾 Testes</button>
+    <button class="lbtn on" id="b-ts"   onclick="tg('ts')" style="color:var(--green)">🌾 Testes</button>
     <button class="lbtn on" id="b-bd"   onclick="tg('bd')">Divisas</button>
     <button class="lbtn on" id="ln-at"  onclick="tgN('at')">Nm. Ativos</button>
     <button class="lbtn on" id="ln-tr"  onclick="tgN('tr')">Nm. Territ.</button>
@@ -256,7 +292,6 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
     <span class="f-result" id="f-result"></span>
   </div>
 </div>
-
 <div id="mwrap">
   <div id="map"></div>
   <div id="sbar">
