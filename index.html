@@ -183,101 +183,114 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
 <body>
 
 <div id="hdr">
-  <!-- ROW 1: brand + stats -->
   <div class="hrow1">
+    <!-- Brand -->
     <div class="brand">
       <div class="bdg">HD AGRO</div>
-      <div style="display:flex;flex-direction:column;gap:1px;">
-        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px;flex-shrink:0;">
-  <circle cx="60" cy="60" r="58" fill="none" stroke="white" stroke-width="4"/>
-  <circle cx="60" cy="60" r="54" fill="#0f2830"/>
-  <!-- ForSeed icon: overlapping leaf/seed shapes -->
-  <path d="M60 20 Q90 35 85 65 Q75 85 60 90 Q45 85 35 65 Q30 35 60 20Z" fill="#6abf8a" opacity="0.9"/>
-  <path d="M60 30 Q82 50 75 70 Q65 88 60 90 Q50 75 48 55 Q48 35 60 30Z" fill="#f5c020" opacity="0.85"/>
-  <path d="M60 35 Q75 55 68 72 Q62 85 60 90 Q55 78 54 62 Q53 45 60 35Z" fill="#0f2830" opacity="0.4"/>
-  <circle cx="60" cy="60" r="12" fill="white" opacity="0.15"/>
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;flex-shrink:0;">
+  <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="3.5"/>
+  <circle cx="50" cy="50" r="44" fill="#0f2830"/>
+  <path d="M50 14 Q72 26 70 52 Q65 74 50 82 Q35 74 30 52 Q28 26 50 14Z" fill="#6abf8a"/>
+  <path d="M50 22 Q68 40 62 60 Q56 76 50 82 Q44 70 43 54 Q42 36 50 22Z" fill="#f5c020"/>
+  <circle cx="50" cy="50" r="10" fill="#0f2830" opacity="0.6"/>
 </svg>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:1px;">
+      <div style="display:flex;flex-direction:column;gap:0px;">
         <div style="font-size:11px;font-weight:700;color:var(--tx);letter-spacing:1px;">NORDESTE</div>
         <div style="font-size:9px;color:var(--green);letter-spacing:0.5px;">BA · AL · PE</div>
       </div>
     </div>
     <div class="hstats">
-      <!-- Contrato -->
-      <div class="hcard">
-        <span class="hcard-t">🗺️</span>
-        <span class="hcn" style="color:var(--al)">102</span><span class="hcl">AL</span>
-        <span class="hcn" style="color:var(--ba)">58</span><span class="hcl">BA</span>
-        <span class="hcn" style="color:var(--pe)">120</span><span class="hcl">PE</span>
-        <span style="font-size:8px;color:var(--dm);margin-left:2px;">mun.</span>
+
+      <!-- CONTRATO -->
+      <div class="hcard" style="flex-direction:column;gap:2px;min-width:110px;">
+        <span class="hcard-t" style="font-size:8px;color:var(--dm);letter-spacing:1px;text-transform:uppercase;">Contrato</span>
+        <div style="display:flex;gap:7px;">
+          <div class="hci"><span class="hcn" style="color:var(--ba)">58</span><span class="hcl">BA</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--al)">102</span><span class="hcl">AL</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--pe)">120</span><span class="hcl">PE</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--dm)">280</span><span class="hcl">total</span></div>
+        </div>
       </div>
-      <!-- Ativos -->
-      <div class="hcard">
-        <span class="hcard-t">🌽</span>
-        <span class="hcn" style="color:var(--al)">15</span><span class="hcl">AL</span>
-        <span class="hcn" style="color:var(--ba)">24</span><span class="hcl">BA</span>
-        <span class="hcn" style="color:var(--pe)">3</span><span class="hcl">PE</span>
-        <span style="font-size:8px;color:var(--dm);margin-left:2px;">ativos</span>
-      </div>
+
       <div class="hsep"></div>
-      <!-- Testes + Clientes -->
-      <div class="hcard">
-        <span class="hcard-t">🌾</span>
-        <span class="hcn" style="color:var(--green)">50</span><span class="hcl">testes</span>
-        <span class="hcn" style="color:var(--gold)">37</span><span class="hcl">cli. teste</span>
-        <span style="font-size:8px;color:var(--dm);margin:0 2px;">|</span>
-        <span class="hcn" style="color:var(--ok)">30</span><span class="hcl">BA</span>
-        <span class="hcn" style="color:var(--al)">7</span><span class="hcl">AL</span>
-        <span class="hcn" style="color:var(--pe)">0</span><span class="hcl">PE</span>
+
+      <!-- ATIVOS -->
+      <div class="hcard" style="flex-direction:column;gap:2px;min-width:110px;">
+        <span class="hcard-t" style="font-size:8px;color:var(--dm);letter-spacing:1px;text-transform:uppercase;">Ativos</span>
+        <div style="display:flex;gap:7px;">
+          <div class="hci"><span class="hcn" style="color:var(--ba)">24</span><span class="hcl">BA</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--al)">15</span><span class="hcl">AL</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--pe)">3</span><span class="hcl">PE</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--dm)">42</span><span class="hcl">total</span></div>
+        </div>
       </div>
+
       <div class="hsep"></div>
-      <!-- Avaliações -->
-      <div class="hcard">
-        <span class="hcard-t">📊</span>
-        <span class="hcn" style="color:var(--ok)"   id="hc-ok">0</span><span class="hcl" style="color:var(--ok)">●</span>
-        <span class="hcn" style="color:var(--warn)"  id="hc-pend">0</span><span class="hcl" style="color:var(--warn)">●</span>
-        <span class="hcn" style="color:var(--danger)"id="hc-atrs">0</span><span class="hcl" style="color:var(--danger)">●</span>
-        <span class="hcn" style="color:var(--gray)"  id="hc-sem">0</span><span class="hcl" style="color:var(--gray)">●</span>
+
+      <!-- ÁREA MILHO -->
+      <div class="hcard" style="flex-direction:column;gap:2px;min-width:140px;">
+        <span class="hcard-t" style="font-size:8px;color:var(--dm);letter-spacing:1px;text-transform:uppercase;">Área Milho (ha)</span>
+        <div style="display:flex;gap:7px;">
+          <div class="hci"><span class="hcn" style="color:var(--ba)">100k</span><span class="hcl">BA</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--al)">25k</span><span class="hcl">AL</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--pe)">3k</span><span class="hcl">PE</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--tx)">128k</span><span class="hcl">total</span></div>
+        </div>
       </div>
+
       <div class="hsep"></div>
-      <!-- Milho ha -->
-      <div class="hcard">
-        <span class="hcard-t">🌽</span>
-        <span class="hcn" style="color:var(--ba)">100k</span><span class="hcl">BA</span>
-        <span class="hcn" style="color:var(--al)">25k</span><span class="hcl">AL</span>
-        <span class="hcn" style="color:var(--pe)">3k</span><span class="hcl">PE</span>
-        <span class="hcn" style="color:var(--tx)">128k</span><span class="hcl">ha</span>
+
+      <!-- PENETRAÇÃO -->
+      <div class="hcard" style="flex-direction:column;gap:2px;min-width:175px;">
+        <span class="hcard-t" style="font-size:8px;color:var(--dm);letter-spacing:1px;text-transform:uppercase;">Penetração ForSeed (ha testado)</span>
+        <div style="display:flex;gap:7px;">
+          <div class="hci">
+            <span class="hcn" style="color:var(--ba)" id="hc-pen-ba">12,840</span>
+            <span class="hcl" style="color:var(--ba)">12.8% · BA</span>
+          </div>
+          <div class="hci">
+            <span class="hcn" style="color:var(--al)" id="hc-pen-al">3,640</span>
+            <span class="hcl" style="color:var(--al)">14.6% · AL</span>
+          </div>
+          <div class="hci">
+            <span class="hcn" style="color:var(--pe)" id="hc-pen-pe">0</span>
+            <span class="hcl" style="color:var(--pe)">0.0% · PE</span>
+          </div>
+        </div>
       </div>
+
+      <div class="hsep"></div>
+
+      <!-- AVALIAÇÕES -->
+      <div class="hcard" style="flex-direction:column;gap:2px;">
+        <span class="hcard-t" style="font-size:8px;color:var(--dm);letter-spacing:1px;text-transform:uppercase;">Avaliações (50 testes · 37 clientes)</span>
+        <div style="display:flex;gap:7px;">
+          <div class="hci"><span class="hcn" style="color:var(--ok)"    id="hc-ok">0</span><span class="hcl" style="color:var(--ok)">●</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--warn)"  id="hc-pend">0</span><span class="hcl" style="color:var(--warn)">●</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--danger)"id="hc-atrs">0</span><span class="hcl" style="color:var(--danger)">●</span></div>
+          <div class="hci"><span class="hcn" style="color:var(--gray)"  id="hc-sem">0</span><span class="hcl" style="color:var(--gray)">●</span></div>
+        </div>
+      </div>
+
     </div>
   </div>
+
   <!-- ROW 2: filters -->
   <div class="hrow2">
-    <!-- Estado chips com ha info -->
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
-      <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
-      <span style="font-size:7px;color:var(--al);text-align:center;line-height:1.1;">25k ha · 7 cli<br><span style="color:var(--dm);" id="ha-cli-al">3,640ha testados</span></span>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
-      <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
-      <span style="font-size:7px;color:var(--ba);text-align:center;line-height:1.1;">100k ha · 30 cli<br><span style="color:var(--dm);" id="ha-cli-ba">12,840ha testados</span></span>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
-      <button class="fchip st-pe" id="chip-pe" onclick="toggleChip('estado','PE',this)">PE</button>
-      <span style="font-size:7px;color:var(--pe);text-align:center;line-height:1.1;">3k ha · 0 cli<br><span style="color:var(--dm);" id="ha-cli-pe">0ha testados</span></span>
-    </div>
+    <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
+    <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
+    <button class="fchip st-pe" id="chip-pe" onclick="toggleChip('estado','PE',this)">PE</button>
     <div class="fsep"></div>
-    <!-- AV status chips — só bolinhas coloridas -->
-    <button class="fchip av-ok"     id="chip-ok"   onclick="toggleChip('av_group','OK',this)" title="Em dia">● Em dia</button>
-    <button class="fchip av-warn"   id="chip-pend" onclick="toggleChip('av_group','PEND',this)" title="Pendente">● Pend.</button>
-    <button class="fchip av-danger" id="chip-atrs" onclick="toggleChip('av_group','ATRS',this)" title="Atrasada">● Atras.</button>
-    <button class="fchip av-gray"   id="chip-sem"  onclick="toggleChip('av_group','SEM',this)" title="Sem data">● S/data</button>
+    <button class="fchip av-ok"     id="chip-ok"   onclick="toggleChip('av_group','OK',this)">● Em dia</button>
+    <button class="fchip av-warn"   id="chip-pend" onclick="toggleChip('av_group','PEND',this)">● Pend.</button>
+    <button class="fchip av-danger" id="chip-atrs" onclick="toggleChip('av_group','ATRS',this)">● Atras.</button>
+    <button class="fchip av-gray"   id="chip-sem"  onclick="toggleChip('av_group','SEM',this)">● S/data</button>
     <div class="fsep"></div>
-    <select class="fsel" id="sel-cli"    onchange="setFilter('cliente',this.value)"      title="Cliente"><option value="">🧑‍🌾 Cliente</option><option value="ALFREDO GÓIS">Alfredo Góis</option><option value="ANTONIO OLAVO FRAGA CARVALHO">Antonio Olavo Fraga Carvalho</option><option value="ANTONIO RIVANILDO GAMA SILVA">Antonio Rivanildo Gama Silva</option><option value="CARMELITA VIRGENS">Carmelita Virgens</option><option value="CHARLES DE JESUS ROSÁRIO">Charles De Jesus Rosário</option><option value="CLAUDIANO MENEZES DOS SANTOS">Claudiano Menezes Dos Santos</option><option value="CRIZANTO ROBERTO ROCHA">Crizanto Roberto Rocha</option><option value="DOUGLAS CARDOSO">Douglas Cardoso</option><option value="DOUGLAS LOCK">Douglas Lock</option><option value="EDINEI SANTANA">Edinei Santana</option><option value="EDIVALDO ALVES DA SILVA">Edivaldo Alves Da Silva</option><option value="EDNALDO MOREIRA DA SILVA">Ednaldo Moreira Da Silva</option><option value="ELIZEU SANTOS">Elizeu Santos</option><option value="FLÁVIO GÓIS">Flávio Góis</option><option value="IDINEI SANTOS NASCIMENTO">Idinei Santos Nascimento</option><option value="JANDIR SILVA DO NASCIMENTO">Jandir Silva Do Nascimento</option><option value="JORGE OLIVEIRA">Jorge Oliveira</option><option value="JOSÉ DE ANA">José De Ana</option><option value="JOSÉ FRAGA">José Fraga</option><option value="JOSÉ HAMILTON FRAGA">José Hamilton Fraga</option><option value="JOSÉ HELIO NASCIMENTO SANTOS">José Helio Nascimento Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS">José Lourenço Dos Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS (OUTRO) 111">José Lourenço Dos Santos (Outro) 111</option><option value="JOÃO ANTENOR CAVALCANTE">João Antenor Cavalcante</option><option value="JOÃO PINHEIRO JUNIOR">João Pinheiro Junior</option><option value="JOÃO TUCANO FILHO">João Tucano Filho</option><option value="LUAN FONTES">Luan Fontes</option><option value="MANOEL MESSIAS">Manoel Messias</option><option value="NETO">Neto</option><option value="RANIERE PIMENTEL DE SANTANA">Raniere Pimentel De Santana</option><option value="RIKSON DOS SANTOS SILVA">Rikson Dos Santos Silva</option><option value="ROBERTO CHIBATTA">Roberto Chibatta</option><option value="SALUSTIANO">Salustiano</option><option value="SILVA E DUARTE LTDA (TUTA e LAERCIO)">Silva E Duarte Ltda (Tuta E Laercio)</option><option value="SÉRGIO GÓIS">Sérgio Góis</option><option value="SÍLVIO MENEZES TAVARES">Sílvio Menezes Tavares</option><option value="WILLIAN FRAGA">Willian Fraga</option></select>
-    <select class="fsel" id="sel-hib"    onchange="setFilter('hibrido',this.value)"      title="Híbrido"><option value="">🌽 Híbrido</option><option value="FS1503PWU">FS1503PWU</option><option value="FS1680PWU">FS1680PWU</option><option value="FS560PWU">FS560PWU</option><option value="FS566PWU">FS566PWU</option><option value="FS650PWU">FS650PWU</option><option value="FS656PWU">FS656PWU</option><option value="FS670PWU">FS670PWU</option><option value="FS695PWU">FS695PWU</option><option value="FSCOD1918PWU">FSCOD1918PWU</option></select>
-    <select class="fsel" id="sel-dist"   onchange="setFilter('distribuidor',this.value)" title="Distribuidor"><option value="">🤝 Dist.</option><option value="CAMPO REAL">CAMPO REAL</option><option value="CULTIVA">CULTIVA</option><option value="OMEGA">OMEGA</option><option value="RB DANTAS">RB DANTAS</option></select>
-    <select class="fsel" id="sel-lpht"   onchange="setFilter('lpht',this.value)"         title="App LPHT"><option value="">📊 LPHT</option><option value="sim">✅ SIM</option><option value="nao">— NÃO</option></select>
-    <select class="fsel" id="sel-ensaio" onchange="setFilter('ensaio',this.value)"       title="Ensaio"><option value="">🧪 Ensaio</option><option value="GDE">GDE</option><option value="SBS">SBS</option><option value="COMERCIAL">Comercial</option></select>
+    <select class="fsel" id="sel-cli"    onchange="setFilter('cliente',this.value)"><option value="">🧑‍🌾 Cliente</option><option value="ALFREDO GÓIS">Alfredo Góis</option><option value="ANTONIO OLAVO FRAGA CARVALHO">Antonio Olavo Fraga Carvalho</option><option value="ANTONIO RIVANILDO GAMA SILVA">Antonio Rivanildo Gama Silva</option><option value="CARMELITA VIRGENS">Carmelita Virgens</option><option value="CHARLES DE JESUS ROSÁRIO">Charles De Jesus Rosário</option><option value="CLAUDIANO MENEZES DOS SANTOS">Claudiano Menezes Dos Santos</option><option value="CRIZANTO ROBERTO ROCHA">Crizanto Roberto Rocha</option><option value="DOUGLAS CARDOSO">Douglas Cardoso</option><option value="DOUGLAS LOCK">Douglas Lock</option><option value="EDINEI SANTANA">Edinei Santana</option><option value="EDIVALDO ALVES DA SILVA">Edivaldo Alves Da Silva</option><option value="EDNALDO MOREIRA DA SILVA">Ednaldo Moreira Da Silva</option><option value="ELIZEU SANTOS">Elizeu Santos</option><option value="FLÁVIO GÓIS">Flávio Góis</option><option value="IDINEI SANTOS NASCIMENTO">Idinei Santos Nascimento</option><option value="JANDIR SILVA DO NASCIMENTO">Jandir Silva Do Nascimento</option><option value="JORGE OLIVEIRA">Jorge Oliveira</option><option value="JOSÉ DE ANA">José De Ana</option><option value="JOSÉ FRAGA">José Fraga</option><option value="JOSÉ HAMILTON FRAGA">José Hamilton Fraga</option><option value="JOSÉ HELIO NASCIMENTO SANTOS">José Helio Nascimento Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS">José Lourenço Dos Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS (OUTRO) 111">José Lourenço Dos Santos (Outro) 111</option><option value="JOÃO ANTENOR CAVALCANTE">João Antenor Cavalcante</option><option value="JOÃO PINHEIRO JUNIOR">João Pinheiro Junior</option><option value="JOÃO TUCANO FILHO">João Tucano Filho</option><option value="LUAN FONTES">Luan Fontes</option><option value="MANOEL MESSIAS">Manoel Messias</option><option value="NETO">Neto</option><option value="RANIERE PIMENTEL DE SANTANA">Raniere Pimentel De Santana</option><option value="RIKSON DOS SANTOS SILVA">Rikson Dos Santos Silva</option><option value="ROBERTO CHIBATTA">Roberto Chibatta</option><option value="SALUSTIANO">Salustiano</option><option value="SILVA E DUARTE LTDA (TUTA e LAERCIO)">Silva E Duarte Ltda (Tuta E Laercio)</option><option value="SÉRGIO GÓIS">Sérgio Góis</option><option value="SÍLVIO MENEZES TAVARES">Sílvio Menezes Tavares</option><option value="WILLIAN FRAGA">Willian Fraga</option></select>
+    <select class="fsel" id="sel-hib"    onchange="setFilter('hibrido',this.value)"><option value="">🌽 Híbrido</option><option value="FS1503PWU">FS1503PWU</option><option value="FS1680PWU">FS1680PWU</option><option value="FS560PWU">FS560PWU</option><option value="FS566PWU">FS566PWU</option><option value="FS650PWU">FS650PWU</option><option value="FS656PWU">FS656PWU</option><option value="FS670PWU">FS670PWU</option><option value="FS695PWU">FS695PWU</option><option value="FSCOD1918PWU">FSCOD1918PWU</option></select>
+    <select class="fsel" id="sel-dist"   onchange="setFilter('distribuidor',this.value)"><option value="">🤝 Dist.</option><option value="CAMPO REAL">CAMPO REAL</option><option value="CULTIVA">CULTIVA</option><option value="OMEGA">OMEGA</option><option value="RB DANTAS">RB DANTAS</option></select>
+    <select class="fsel" id="sel-lpht"   onchange="setFilter('lpht',this.value)"><option value="">📊 LPHT</option><option value="sim">✅ SIM</option><option value="nao">— NÃO</option></select>
+    <select class="fsel" id="sel-ensaio" onchange="setFilter('ensaio',this.value)"><option value="">🧪 Ensaio</option><option value="GDE">GDE</option><option value="SBS">SBS</option><option value="COMERCIAL">Comercial</option></select>
     <div class="fsep"></div>
     <button class="lbtn on" id="b-at"   onclick="tg('at')">🌽 Ativos</button>
     <button class="lbtn on" id="b-terr" onclick="tg('terr')">Território</button>
@@ -296,6 +309,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
     <span class="f-result" id="f-result"></span>
   </div>
 </div>
+
 <div id="mwrap">
   <div id="map"></div>
   <div id="sbar">
@@ -427,9 +441,13 @@ function applyFilters(){
   var elBA=document.getElementById('ha-cli-ba');
   var elAL=document.getElementById('ha-cli-al');
   var elPE=document.getElementById('ha-cli-pe');
-  if(elBA)elBA.textContent=(stArea.BA?stArea.BA.toLocaleString()+'ha testados':'—');
-  if(elAL)elAL.textContent=(stArea.AL?stArea.AL.toLocaleString()+'ha testados':'—');
-  if(elPE)elPE.textContent=(stArea.PE?stArea.PE.toLocaleString()+'ha testados':'—');
+  // Update penetração header
+  var penBA=document.getElementById('hc-pen-ba');
+  var penAL=document.getElementById('hc-pen-al');
+  var penPE=document.getElementById('hc-pen-pe');
+  if(penBA)penBA.textContent=stArea.BA?stArea.BA.toLocaleString():'12,840';
+  if(penAL)penAL.textContent=stArea.AL?stArea.AL.toLocaleString():'3,640';
+  if(penPE)penPE.textContent=stArea.PE?stArea.PE.toLocaleString():'0';
   var sc2=document.getElementById('sc');if(sc2&&F.busca)sc2.textContent=matched.length?'🌱'+matched.length:'';else if(sc2)sc2.textContent='';
   updL();
 }
