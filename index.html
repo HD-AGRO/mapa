@@ -223,6 +223,15 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
       <option value="nao">— NÃO (comercial)</option>
     </select>
   </div>
+  <div class="fsel-wrap">
+    <span class="fsel-lbl">Ensaio</span>
+    <select class="fsel" id="sel-ensaio" onchange="setFilter('ensaio',this.value)">
+      <option value="">Todos</option>
+      <option value="GDE">GDE</option>
+      <option value="SBS">SBS</option>
+      <option value="COMERCIAL">Comercial</option>
+    </select>
+  </div>
   <button class="layer-btn on" id="b-sat" onclick="tgSat()">Satélite</button>
   <div class="f-sep"></div>
   <!-- Search -->
@@ -287,7 +296,7 @@ var AN=new Set(ATIVOS.map(function(a){return norm(a.name);}));
 var TBM={};TESTS.forEach(function(t){var k=norm(t.municipio);if(!TBM[k])TBM[k]=[];TBM[k].push(t);});
 
 // ── FILTER STATE ──────────────────────────────────────────────────────────
-var F={estados:new Set(),av_groups:new Set(),cliente:'',hibrido:'',distribuidor:'',lpht:'',busca:''};
+var F={estados:new Set(),av_groups:new Set(),cliente:'',hibrido:'',distribuidor:'',lpht:'',ensaio:'',busca:''};
 
 function matchTest(t){
   if(F.estados.size>0 && !F.estados.has(t.uf)) return false;
@@ -306,6 +315,7 @@ function matchTest(t){
   if(F.distribuidor && t.distribuidor!==F.distribuidor) return false;
   if(F.lpht==='sim' && !t.lpht) return false;
   if(F.lpht==='nao' && t.lpht) return false;
+  if(F.ensaio && t.ensaio!==F.ensaio) return false;
   if(F.busca && !( t.produtor.toLowerCase().includes(F.busca)||t.municipio.toLowerCase().includes(F.busca)||t.fazenda.toLowerCase().includes(F.busca)||t.hibrido.toLowerCase().includes(F.busca)||t.distribuidor.toLowerCase().includes(F.busca))) return false;
   return true;
 }
@@ -352,6 +362,7 @@ window.resetAll=function(){
   document.getElementById('sel-hib').value='';
   document.getElementById('sel-dist').value='';
   document.getElementById('sel-lpht').value='';
+  document.getElementById('sel-ensaio').value='';
   document.getElementById('srch').value='';
   document.getElementById('sc').textContent='';
   applyFilters();
