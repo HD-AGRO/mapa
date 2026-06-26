@@ -18,14 +18,17 @@
 html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-serif;background:var(--bg);color:var(--tx);display:flex;flex-direction:column;}
 
 /* ── HEADER ── */
-#hdr{flex-shrink:0;background:linear-gradient(90deg,#0d1f17,#0b1512);border-bottom:1px solid var(--b2);padding:6px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+#hdr{flex-shrink:0;background:linear-gradient(90deg,#0d1f17,#0b1512);border-bottom:1px solid var(--b2);display:flex;flex-direction:column;}
+.hdr-row1{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 12px;flex-wrap:wrap;}
+#ftoggle{display:flex;align-items:center;gap:4px;padding:4px 12px;border-top:1px solid var(--b);overflow-x:auto;flex-wrap:nowrap;background:var(--sf);}
+.hdr-row2{display:flex;align-items:center;gap:4px;padding:4px 12px;border-top:1px solid var(--b);overflow-x:auto;flex-wrap:nowrap;background:var(--sf);}
 .brand{display:flex;align-items:center;gap:9px;flex-shrink:0;}
 .bdg{font-size:15px;font-weight:800;letter-spacing:2px;color:var(--gold);background:rgba(232,201,106,0.1);border:1px solid rgba(232,201,106,0.3);padding:3px 9px;border-radius:5px;}
 .brt{font-size:12px;font-weight:600;}.brs{font-size:10px;color:var(--dm);}
 .hstats{display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
-.hcard{background:var(--sf2);border:1px solid var(--b);border-radius:7px;padding:4px 10px;}
-.hcard-title{font-size:8px;color:var(--dm);text-transform:uppercase;letter-spacing:0.7px;font-weight:600;margin-bottom:3px;}
-.hcard-row{display:flex;gap:9px;align-items:baseline;}
+.hcard{background:var(--sf2);border:1px solid var(--b);border-radius:6px;padding:3px 8px;display:flex;align-items:center;gap:5px;}
+.hcard-title{font-size:8px;color:var(--dm);text-transform:uppercase;letter-spacing:0.7px;font-weight:600;margin-right:3px;white-space:nowrap;}
+.hcard-row{display:flex;gap:6px;align-items:baseline;}
 .hci{display:flex;flex-direction:column;align-items:center;}
 .hcn{font-size:16px;font-weight:800;line-height:1;}.hcl{font-size:8px;color:var(--dm);text-transform:uppercase;}
 .hsep{width:1px;height:30px;background:var(--b2);}
@@ -35,7 +38,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
 #fpnl.collapsed{height:0;border-bottom:none;}
 
 /* Filter toggle bar */
-#ftoggle{flex-shrink:0;height:34px;background:var(--sf);border-bottom:1px solid var(--b2);display:flex;align-items:center;gap:6px;padding:0 12px;}
+
 .ftog-btn{padding:2px 10px;border-radius:20px;border:1.5px solid var(--b2);color:var(--dm);font-size:10px;font-weight:600;cursor:pointer;background:transparent;transition:all 0.15s;white-space:nowrap;}
 .ftog-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(232,201,106,0.08);}
 .fcount{background:var(--gold);color:#000;font-size:9px;font-weight:800;border-radius:10px;padding:1px 5px;margin-left:3px;}
@@ -138,44 +141,101 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
 </head>
 <body>
 
+
 <div id="hdr">
-  <div class="brand"><div class="bdg">HD AGRO</div><div><div class="brt">Território de Atuação</div><div class="brs">Nordeste — AL · BA · PE</div></div></div>
-  <div class="hstats">
-    <div class="hcard"><div class="hcard-title">📋 Contrato</div><div class="hcard-row">
-      <div class="hci"><span class="hcn" style="color:var(--al)">102</span><span class="hcl">AL</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--ba)">58</span><span class="hcl">BA</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--pe)">120</span><span class="hcl">PE</span></div>
-    </div></div>
-    <div class="hsep"></div>
-    <div class="hcard"><div class="hcard-title">🔥 Ativos</div><div class="hcard-row">
-      <div class="hci"><span class="hcn" style="color:var(--al)">15</span><span class="hcl">AL</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--ba)">24</span><span class="hcl">BA</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--pe)">3</span><span class="hcl">PE</span></div>
-    </div></div>
-    <div class="hsep"></div>
-    <div class="hcard"><div class="hcard-title">🌱 ForSeed — Avaliações</div><div class="hcard-row">
-      <div class="hci"><span class="hcn" style="color:var(--ok)" id="hc-ok">13</span><span class="hcl">✅ Em dia</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--warn)" id="hc-pend">17</span><span class="hcl">⏳ Pendente</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--danger)" id="hc-atrs">11</span><span class="hcl">🔴 Atrasada</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--gray)" id="hc-sem">9</span><span class="hcl">— Sem data</span></div>
-    </div></div>
-    <div class="hsep"></div>
-    <div class="hcard"><div class="hcard-title">🌽 Área Milho (ha)</div><div class="hcard-row">
-      <div class="hci"><span class="hcn" style="color:var(--ba)">100k</span><span class="hcl">BA</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--al)">25k</span><span class="hcl">AL</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--pe)">3k</span><span class="hcl">PE</span></div>
-      <div class="hci"><span class="hcn" style="color:var(--tx)">128k</span><span class="hcl">Total</span></div>
-    </div></div>
+  <!-- ROW 1: Brand + Stats -->
+  <div class="hdr-row1">
+    <div class="brand">
+      <div class="bdg">HD AGRO</div>
+      <div><div class="brt">Território · Nordeste</div></div>
+    </div>
+    <div class="hstats">
+      <div class="hcard">
+        <span class="hcard-title">📋 Contrato</span>
+        <span class="hcn" style="color:var(--al)">102</span><span class="hcl">AL</span>
+        <span class="hcn" style="color:var(--ba)">58</span><span class="hcl">BA</span>
+        <span class="hcn" style="color:var(--pe)">120</span><span class="hcl">PE</span>
+      </div>
+      <div class="hcard">
+        <span class="hcard-title">🔥 Ativos</span>
+        <span class="hcn" style="color:var(--al)">15</span><span class="hcl">AL</span>
+        <span class="hcn" style="color:var(--ba)">24</span><span class="hcl">BA</span>
+        <span class="hcn" style="color:var(--pe)">3</span><span class="hcl">PE</span>
+      </div>
+      <div class="hsep"></div>
+      <div class="hcard">
+        <span class="hcard-title">🌱 Avaliações</span>
+        <span class="hcn" style="color:var(--ok)" id="hc-ok">13</span><span class="hcl">✅</span>
+        <span class="hcn" style="color:var(--warn)" id="hc-pend">17</span><span class="hcl">⏳</span>
+        <span class="hcn" style="color:var(--danger)" id="hc-atrs">11</span><span class="hcl">🔴</span>
+        <span class="hcn" style="color:var(--gray)" id="hc-sem">9</span><span class="hcl">—</span>
+      </div>
+      <div class="hcard">
+        <span class="hcard-title">🌽 Milho</span>
+        <span class="hcn" style="color:var(--ba)">100k</span><span class="hcl">BA</span>
+        <span class="hcn" style="color:var(--al)">25k</span><span class="hcl">AL</span>
+        <span class="hcn" style="color:var(--pe)">3k</span><span class="hcl">PE</span>
+        <span class="hcn" style="color:var(--tx)">128k</span><span class="hcl">ha</span>
+      </div>
+    </div>
+  </div>
+  <!-- ROW 2: Filters -->
+  <div class="hdr-row2" id="ftoggle">
+    <!-- Estado chips -->
+    <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
+    <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
+    <button class="fchip st-pe" id="chip-pe" onclick="toggleChip('estado','PE',this)">PE</button>
+    <div class="f-sep"></div>
+    <!-- AV chips -->
+    <button class="fchip av-ok"     id="chip-ok"   onclick="toggleChip('av_group','OK',this)">✅ Em dia</button>
+    <button class="fchip av-warn"   id="chip-pend" onclick="toggleChip('av_group','PEND',this)">⏳ Pend.</button>
+    <button class="fchip av-danger" id="chip-atrs" onclick="toggleChip('av_group','ATRS',this)">🔴 Atras.</button>
+    <button class="fchip av-gray"   id="chip-sem"  onclick="toggleChip('av_group','SEM',this)">— S/data</button>
+    <div class="f-sep"></div>
+    <!-- Selects -->
+    <select class="fsel" id="sel-cli" onchange="setFilter('cliente',this.value)" title="Cliente">
+      <option value="">👤 Cliente</option>
+      <option value="ALFREDO GÓIS">Alfredo Góis</option><option value="ANTONIO OLAVO FRAGA CARVALHO">Antonio Olavo Fraga Carvalho</option><option value="ANTONIO RIVANILDO GAMA SILVA">Antonio Rivanildo Gama Silva</option><option value="CARMELITA VIRGENS">Carmelita Virgens</option><option value="CHARLES DE JESUS ROSÁRIO">Charles De Jesus Rosário</option><option value="CLAUDIANO MENEZES DOS SANTOS">Claudiano Menezes Dos Santos</option><option value="CRIZANTO ROBERTO ROCHA">Crizanto Roberto Rocha</option><option value="DOUGLAS CARDOSO">Douglas Cardoso</option><option value="DOUGLAS LOCK">Douglas Lock</option><option value="EDINEI SANTANA">Edinei Santana</option><option value="EDIVALDO ALVES DA SILVA">Edivaldo Alves Da Silva</option><option value="EDNALDO MOREIRA DA SILVA">Ednaldo Moreira Da Silva</option><option value="ELIZEU SANTOS">Elizeu Santos</option><option value="FLÁVIO GÓIS">Flávio Góis</option><option value="IDINEI SANTOS NASCIMENTO">Idinei Santos Nascimento</option><option value="JANDIR SILVA DO NASCIMENTO">Jandir Silva Do Nascimento</option><option value="JORGE OLIVEIRA">Jorge Oliveira</option><option value="JOSÉ DE ANA">José De Ana</option><option value="JOSÉ FRAGA">José Fraga</option><option value="JOSÉ HAMILTON FRAGA">José Hamilton Fraga</option><option value="JOSÉ HELIO NASCIMENTO SANTOS">José Helio Nascimento Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS">José Lourenço Dos Santos</option><option value="JOSÉ LOURENÇO DOS SANTOS (OUTRO) 111">José Lourenço Dos Santos (Outro) 111</option><option value="JOÃO ANTENOR CAVALCANTE">João Antenor Cavalcante</option><option value="JOÃO PINHEIRO JUNIOR">João Pinheiro Junior</option><option value="JOÃO TUCANO FILHO">João Tucano Filho</option><option value="LUAN FONTES">Luan Fontes</option><option value="MANOEL MESSIAS">Manoel Messias</option><option value="NETO">Neto</option><option value="RANIERE PIMENTEL DE SANTANA">Raniere Pimentel De Santana</option><option value="RIKSON DOS SANTOS SILVA">Rikson Dos Santos Silva</option><option value="ROBERTO CHIBATTA">Roberto Chibatta</option><option value="SALUSTIANO">Salustiano</option><option value="SILVA E DUARTE LTDA (TUTA e LAERCIO)">Silva E Duarte Ltda (Tuta E Laercio)</option><option value="SÉRGIO GÓIS">Sérgio Góis</option><option value="SÍLVIO MENEZES TAVARES">Sílvio Menezes Tavares</option><option value="WILLIAN FRAGA">Willian Fraga</option>
+    </select>
+    <select class="fsel" id="sel-hib" onchange="setFilter('hibrido',this.value)" title="Híbrido">
+      <option value="">🌽 Híbrido</option>
+      <option value="FS1503PWU">FS1503PWU</option><option value="FS1680PWU">FS1680PWU</option><option value="FS560PWU">FS560PWU</option><option value="FS566PWU">FS566PWU</option><option value="FS650PWU">FS650PWU</option><option value="FS656PWU">FS656PWU</option><option value="FS670PWU">FS670PWU</option><option value="FS695PWU">FS695PWU</option><option value="FSCOD1918PWU">FSCOD1918PWU</option>
+    </select>
+    <select class="fsel" id="sel-dist" onchange="setFilter('distribuidor',this.value)" title="Distribuidor">
+      <option value="">🚚 Dist.</option>
+      <option value="CAMPO REAL">CAMPO REAL</option><option value="CULTIVA">CULTIVA</option><option value="OMEGA">OMEGA</option><option value="RB DANTAS">RB DANTAS</option>
+    </select>
+    <select class="fsel" id="sel-lpht" onchange="setFilter('lpht',this.value)" title="App LPHT">
+      <option value="">📱 LPHT</option>
+      <option value="sim">✅ SIM</option>
+      <option value="nao">— NÃO</option>
+    </select>
+    <select class="fsel" id="sel-ensaio" onchange="setFilter('ensaio',this.value)" title="Ensaio">
+      <option value="">🔬 Ensaio</option>
+      <option value="GDE">GDE</option>
+      <option value="SBS">SBS</option>
+      <option value="COMERCIAL">Comercial</option>
+    </select>
+    <div class="f-sep"></div>
+    <!-- Layer toggles -->
+    <button class="layer-btn on" id="b-at"   onclick="tg('at')">🔥</button>
+    <button class="layer-btn on" id="b-terr" onclick="tg('terr')">Terr.</button>
+    <button class="layer-btn on" id="b-ts"   onclick="tg('ts')" style="color:var(--ts);">🌱</button>
+    <button class="layer-btn on" id="b-bd"   onclick="tg('bd')">Div.</button>
+    <button class="layer-btn on" id="ln-at"  onclick="tgN('at')">Nm.At.</button>
+    <button class="layer-btn on" id="ln-tr"  onclick="tgN('tr')">Nm.Terr.</button>
+    <button class="layer-btn on" id="b-sat"  onclick="tgSat()">Sat.</button>
+    <div class="f-sep"></div>
+    <!-- Search -->
+    <div class="fsearch-wrap">
+      <span class="fsi">🔍</span>
+      <input class="fsearch" type="text" id="srch" placeholder="Buscar..." oninput="doSrch(this.value)">
+      <span class="fsc" id="sc"></span>
+    </div>
+    <button class="f-reset" onclick="resetAll()">✕</button>
+    <span class="f-result" id="f-result"></span>
   </div>
 </div>
-
-<!-- FILTER BAR -->
-<div id="ftoggle">
-  <!-- State chips -->
-  <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
-  <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
-  <button class="fchip st-pe" id="chip-pe" onclick="toggleChip('estado','PE',this)">PE</button>
-  <div class="f-sep"></div>
   <!-- AV status chips -->
   <button class="fchip av-ok"     id="chip-ok"   onclick="toggleChip('av_group','OK',this)">✅ Em dia</button>
   <button class="fchip av-warn"   id="chip-pend" onclick="toggleChip('av_group','PEND',this)">⏳ Pendente</button>
