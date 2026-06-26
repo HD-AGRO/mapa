@@ -1,4 +1,4 @@
-const CACHE = 'hdagro-v3';
+const CACHE = 'hdagro-v4';
 const ASSETS = ['/mapa/', '/mapa/index.html'];
 
 self.addEventListener('install', function(e) {
