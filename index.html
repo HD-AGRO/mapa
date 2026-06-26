@@ -426,23 +426,35 @@ document.addEventListener('DOMContentLoaded',function(){
     document.getElementById('p-n').textContent=t.fazenda||t.municipio;
     var bg=document.getElementById('p-b');bg.textContent=t.municipio+' — '+t.uf;bg.style.borderColor=TS_C;bg.style.color=TS_C;
     var c2=ST_COLOR[t.status]||'#6b7280';
-    document.getElementById('p-body').innerHTML='<div style="margin-top:8px;">'+statusBadge(t)+'</div>'+avProgress(t)+
+    var waBtn=t.whatsapp?'<a class="rb" style="background:rgba(37,211,102,0.1);border-color:rgba(37,211,102,0.3);color:#25d366;margin-top:4px;" href="https://wa.me/55'+t.whatsapp.replace(/\D/g,'')+'" target="_blank">💬 WhatsApp</a>':'';
+    var odBtn=t.pasta_onedrive?'<a class="rb gold" href="'+t.pasta_onedrive+'" target="_blank">📁 Pasta do cliente — OneDrive</a>':'<div class="notest">Pasta não configurada</div>';
+    var locSec=t.lat?('<div class="ps"><div class="pst">📍 Localização</div>'+
+      '<div class="pr"><span class="prl">Precisão</span><span class="prv">'+(t.has_real_coords?'✅ Coords exatas':'📍 Centro município')+'</span></div>'+
+      (t.has_real_coords?'<div class="pr"><span class="prl">Lat/Lng</span><span class="prv" style="font-size:10px;">'+t.lat+', '+t.lng+'</span></div>':'')+
+      (t.has_real_coords?'<a class="rb" href="https://www.google.com/maps/dir/?api=1&destination='+t.lat+','+t.lng+'" target="_blank">🗺️ Rota Google Maps</a>':'')+
+      '</div>'):'';
+    var ensaioColor=t.ensaio==='GDE'?'var(--ts)':t.ensaio==='SBS'?'var(--warn)':'var(--dm)';
+    document.getElementById('p-body').innerHTML=
+      '<div style="margin-top:8px;">'+statusBadge(t)+'</div>'+avProgress(t)+
       '<div class="tc" style="margin-top:8px;"><div class="tct" style="font-size:13px;">'+t.hibrido+(t.biotecnologia?' <span style="font-size:10px;opacity:0.7;">'+t.biotecnologia+'</span>':'')+' — '+(t.area_ha||'—')+' ha</div>'+
-      '<div class="tr"><span class="trl">Produtor</span><span class="trv">'+t.produtor+'</span></div>'+(t.distribuidor?'<div class="tr"><span class="trl">Distribuidor</span><span class="trv">'+t.distribuidor+'</span></div>':'')+
-      '<div class="tr"><span class="trl">Município</span><span class="trv">'+t.municipio+' / '+t.uf+'</span></div>'+(t.fazenda?'<div class="tr"><span class="trl">Fazenda</span><span class="trv">'+t.fazenda+'</span></div>':'')+'</div>'+
+        '<div class="tr"><span class="trl">Produtor</span><span class="trv">'+t.produtor+'</span></div>'+
+        (t.distribuidor?'<div class="tr"><span class="trl">Distribuidor</span><span class="trv">'+t.distribuidor+'</span></div>':'')+
+        '<div class="tr"><span class="trl">Município</span><span class="trv">'+t.municipio+' / '+t.uf+'</span></div>'+
+        (t.fazenda?'<div class="tr"><span class="trl">Fazenda</span><span class="trv">'+t.fazenda+'</span></div>':'')+
+      '</div>'+
       '<div class="ps" style="margin-top:9px"><div class="pst">🌽 Plantio</div>'+
-      '<div class="pr"><span class="prl">Data</span><span class="prv">'+t.data_plantio+(t.dias_plantio?' — <span style="color:var(--ts)">'+t.dias_plantio+' dias</span>':'')+'</span></div>'+
-      '<div class="pr"><span class="prl">Híbrido</span><span class="prv" style="color:'+TS_C+';font-weight:700;">'+t.hibrido+'</span></div>'+
-      '<div class="pr"><span class="prl">Ensaio</span><span class="prv" style="color:'+(t.ensaio==="GDE"?'var(--ts)':t.ensaio==="SBS"?'var(--warn)':"var(--dm)")+';font-weight:700;">'+t.ensaio+'</span></div>'+
-      '<div class="pr"><span class="prl">LPHT</span><span class="prv">'+(t.lpht?'✅ SIM':'— NÃO')+'</span></div>'+
-      (t.area_ha?'<div class="pr"><span class="prl">Área</span><span class="prv">'+t.area_ha+' ha</span></div>':'')+
-      (t.vol_sc?'<div class="pr"><span class="prl">Vol. sacas</span><span class="prv">'+t.vol_sc+' sc</span></div>':'')+
-      (t.populacao?'<div class="pr"><span class="prl">Pop. inicial</span><span class="prv">'+t.populacao.toLocaleString()+' pl/ha</span></div>':'')+
-      (t.av1?'<div class="pr"><span class="prl">AV1 ✅</span><span class="prv" style="color:#22c55e;">'+t.av1+(t.av1_dias?' ('+t.av1_dias+'d)':'')+'</span></div>':'<div class="pr"><span class="prl">AV1</span><span class="prv" style="color:'+c2+';">'+(ST_LABEL[t.status]||'—')+'</span></div>')+
-      (t.av2?'<div class="pr"><span class="prl">AV2 ✅</span><span class="prv" style="color:#22c55e;">'+t.av2+(t.av2_dias?' ('+t.av2_dias+'d)':'')+'</span></div>':'')+
-      '</div>'+(t.lat?'<div class="ps"><div class="pst">📍 Localização</div><div class="pr"><span class="prl">Precisão</span><span class="prv">'+(t.has_real_coords?'✅ Coords exatas':'📍 Centro município')+'</span></div>'+(t.has_real_coords?'<div class="pr"><span class="prl">Lat/Lng</span><span class="prv" style="font-size:10px;">'+t.lat+', '+t.lng+'</span></div>':'')+
-      (t.has_real_coords?'<a class="rb" href="https://www.google.com/maps/dir/?api=1&destination='+t.lat+','+t.lng+'" target="_blank">🗺️ Rota Google Maps</a>':'')+'</div>':'')+
-      '<div class="ps"><div class="pst">📂 Arquivos</div>'+(t.pasta_onedrive?'<a class="rb gold" href="'+t.pasta_onedrive+'" target="_blank">📁 Pasta do cliente — OneDrive</a>':'<div class="notest">Pasta não configurada</div>')+(t.whatsapp?'<a class="rb" style="background:rgba(37,211,102,0.1);border-color:rgba(37,211,102,0.3);color:#25d366;margin-top:4px;" href="https://wa.me/55'+t.whatsapp.replace(/\D/g,\'\')+'" target="_blank">💬 WhatsApp</a>':'')+\'</div>\';
+        '<div class="pr"><span class="prl">Data</span><span class="prv">'+t.data_plantio+(t.dias_plantio?' — <span style="color:var(--ts)">'+t.dias_plantio+' dias</span>':'')+'</span></div>'+
+        '<div class="pr"><span class="prl">Híbrido</span><span class="prv" style="color:'+TS_C+';font-weight:700;">'+t.hibrido+'</span></div>'+
+        '<div class="pr"><span class="prl">Ensaio</span><span class="prv" style="color:'+ensaioColor+';font-weight:700;">'+t.ensaio+'</span></div>'+
+        '<div class="pr"><span class="prl">LPHT</span><span class="prv">'+(t.lpht?'✅ SIM':'— NÃO')+'</span></div>'+
+        (t.area_ha?'<div class="pr"><span class="prl">Área</span><span class="prv">'+t.area_ha+' ha</span></div>':'')+
+        (t.vol_sc?'<div class="pr"><span class="prl">Vol. sacas</span><span class="prv">'+t.vol_sc+' sc</span></div>':'')+
+        (t.populacao?'<div class="pr"><span class="prl">Pop. inicial</span><span class="prv">'+t.populacao.toLocaleString()+' pl/ha</span></div>':'')+
+        (t.av1?'<div class="pr"><span class="prl">AV1 ✅</span><span class="prv" style="color:#22c55e;">'+t.av1+(t.av1_dias?' ('+t.av1_dias+'d)':'')+'</span></div>':'<div class="pr"><span class="prl">AV1</span><span class="prv" style="color:'+c2+';">'+(ST_LABEL[t.status]||'—')+'</span></div>')+
+        (t.av2?'<div class="pr"><span class="prl">AV2 ✅</span><span class="prv" style="color:#22c55e;">'+t.av2+(t.av2_dias?' ('+t.av2_dias+'d)':'')+'</span></div>':'')+
+      '</div>'+
+      locSec+
+      '<div class="ps"><div class="pst">📂 Contato e Arquivos</div>'+waBtn+odBtn+'</div>';
     document.getElementById('pnl').classList.add('open');
     if(t.lat&&t.has_real_coords)map.flyTo([t.lat,t.lng],14,{duration:0.6});
     else if(t.lat)map.flyTo([t.lat,t.lng],11,{duration:0.6});
