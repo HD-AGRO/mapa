@@ -183,87 +183,92 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
 <body>
 
 <div id="hdr">
+<div class="hrow1" style="padding:4px 10px;gap:8px;min-height:0;flex-wrap:nowrap;">
 
-<!-- ── LINHA 1: topo compacto ── -->
-<div class="hrow1" style="padding:4px 10px;gap:6px;min-height:0;">
-
-  <!-- ForSeed logo -->
-  <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;padding-right:8px;border-right:1px solid var(--b2);">
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:28px;height:28px;flex-shrink:0;">
+  <!-- ForSeed logo completo -->
+  <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px;flex-shrink:0;">
+  <!-- Anel verde médio externo -->
   <circle cx="50" cy="50" r="50" fill="#6abf8a"/>
-  <circle cx="50" cy="50" r="43" fill="white"/>
-  <circle cx="50" cy="50" r="39" fill="#1e4d5a"/>
-  <path d="M50,50 C46,34 34,22 22,16 C14,26 13,40 18,50 C28,45 40,44 50,50Z" fill="#2d6b5a"/>
-  <path d="M50,50 C54,34 66,24 78,18 C86,28 86,44 80,52 C70,47 60,46 50,50Z" fill="#f5c020"/>
-  <path d="M50,50 C58,60 62,74 58,84 C48,90 36,84 28,76 C34,66 42,56 50,50Z" fill="#6abf8a"/>
-  <path d="M50,50 C60,46 72,48 80,52 C76,64 68,74 58,84 C62,74 58,60 50,50Z" fill="#2d6b5a"/>
+  <!-- Anel branco -->
+  <circle cx="50" cy="50" r="44" fill="white"/>
+  <!-- Fundo teal -->
+  <circle cx="50" cy="50" r="40" fill="#1e4d5a"/>
+  <!-- Pétala verde escura — barra esquerda do F: da base vai até topo-esq, larga -->
+  <path d="M50,50 C50,50 30,46 22,30 C18,20 24,10 34,10 C42,10 50,20 50,50Z" fill="#2d6b5a"/>
+  <!-- Semicírculo amarelo — quadrante direito/superior: sol/semente -->
+  <path d="M50,50 C50,20 62,10 72,14 C82,18 86,32 80,44 C72,40 60,42 50,50Z" fill="#f5c020"/>
+  <!-- Faixa verde médio diagonal — barra horizontal do F, de cima-dir para baixo-esq -->
+  <path d="M50,50 C60,42 72,40 80,44 C80,58 70,70 56,76 C52,66 50,58 50,50Z" fill="#6abf8a"/>
+  <!-- Pétala verde escura pequena — inferior esquerda, fecha o ícone -->
+  <path d="M50,50 C50,58 52,66 56,76 C44,82 30,76 24,64 C20,54 26,46 34,44 C40,46 46,48 50,50Z" fill="#2d6b5a"/>
 </svg>
-    <div style="line-height:1.15;">
-      <div style="font-size:12px;font-weight:900;color:#fff;letter-spacing:1.5px;">FORSEED<sup style="font-size:6px;">®</sup></div>
-      <div style="font-size:7px;color:var(--green);font-style:italic;letter-spacing:0.3px;">Decida pelo Certo</div>
-    </div>
+  <div style="line-height:1.2;">
+    <div style="font-size:13px;font-weight:900;color:#fff;letter-spacing:1.5px;font-family:system-ui,sans-serif;">FORSEED<sup style="font-size:6px;font-weight:500;vertical-align:super;">®</sup></div>
+    <div style="font-size:7.5px;color:#6abf8a;letter-spacing:0.8px;font-weight:500;">Decida pelo Certo</div>
   </div>
+</div>
+
+  <!-- Separador -->
+  <div style="width:1px;height:34px;background:rgba(255,255,255,0.15);flex-shrink:0;"></div>
 
   <!-- HD AGRO -->
-  <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;padding-right:8px;border-right:1px solid var(--b2);">
+  <div style="display:flex;flex-direction:column;gap:1px;flex-shrink:0;padding-right:8px;border-right:1px solid var(--b2);">
     <div class="bdg" style="font-size:12px;padding:2px 7px;">HD AGRO</div>
-    <div style="line-height:1.2;">
-      <div style="font-size:8px;font-weight:700;color:var(--tx);letter-spacing:1px;">NORDESTE</div>
-      <div style="font-size:7px;color:var(--green);letter-spacing:0.5px;">BA · AL · PE</div>
-    </div>
+    <div style="font-size:7px;color:var(--green);letter-spacing:1.5px;font-weight:700;text-align:center;">NORDESTE</div>
   </div>
 
-  <!-- Stats por estado — 3 colunas compactas -->
-  <div style="display:flex;gap:0;flex:1;min-width:0;">
+  <!-- Stats grid — BA · AL · PE + Avaliações numa linha -->
+  <div style="display:flex;gap:0;flex:1;min-width:0;border:1px solid var(--b2);border-radius:7px;overflow:hidden;background:var(--sf2);">
 
     <!-- BA -->
-    <div style="display:flex;flex-direction:column;padding:2px 8px;border-right:1px solid var(--b2);min-width:0;flex:1;">
-      <span style="font-size:8px;font-weight:800;color:var(--ba);letter-spacing:1.5px;margin-bottom:2px;">BA</span>
-      <div style="display:flex;gap:5px;flex-wrap:nowrap;">
-        <span style="font-size:9px;color:var(--dm);" title="Contrato"><span style="font-size:11px;font-weight:700;color:var(--dm);">58</span> cont</span>
-        <span style="font-size:9px;color:var(--ba);" title="Ativos"><span style="font-size:11px;font-weight:700;color:var(--ba);">24</span> at</span>
-        <span style="font-size:9px;color:var(--tx);" title="Área milho"><span style="font-size:11px;font-weight:700;">100k</span> ha</span>
-        <span style="font-size:9px;color:var(--green);" title="Penetração ForSeed"><span class="hcn" style="font-size:11px;color:var(--green);" id="hc-pen-ba">12,840</span>ha·<span style="font-size:10px;font-weight:700;">12.8%</span></span>
+    <div style="display:flex;flex-direction:column;padding:3px 9px;border-right:1px solid var(--b2);flex:1;min-width:0;">
+      <span style="font-size:8px;font-weight:800;color:var(--ba);letter-spacing:1.5px;">BA</span>
+      <div style="display:flex;gap:6px;align-items:baseline;flex-wrap:nowrap;">
+        <span title="Municípios contrato"><span style="font-size:11px;font-weight:700;color:var(--dm);">58</span><span style="font-size:7px;color:var(--dm);margin-left:1px;">cont</span></span>
+        <span title="Municípios ativos"><span style="font-size:11px;font-weight:700;color:var(--ba);">24</span><span style="font-size:7px;color:var(--ba);margin-left:1px;">at</span></span>
+        <span title="Área milho total"><span style="font-size:11px;font-weight:700;color:var(--tx);">100k</span><span style="font-size:7px;color:var(--dm);margin-left:1px;">ha</span></span>
+        <span title="Penetração ForSeed"><span style="font-size:11px;font-weight:700;color:var(--green);" id="hc-pen-ba">12,840</span><span style="font-size:7px;color:var(--green);margin-left:1px;">12.8%</span></span>
       </div>
     </div>
 
     <!-- AL -->
-    <div style="display:flex;flex-direction:column;padding:2px 8px;border-right:1px solid var(--b2);min-width:0;flex:1;">
-      <span style="font-size:8px;font-weight:800;color:var(--al);letter-spacing:1.5px;margin-bottom:2px;">AL</span>
-      <div style="display:flex;gap:5px;flex-wrap:nowrap;">
-        <span style="font-size:9px;color:var(--dm);" title="Contrato"><span style="font-size:11px;font-weight:700;color:var(--dm);">102</span> cont</span>
-        <span style="font-size:9px;color:var(--al);" title="Ativos"><span style="font-size:11px;font-weight:700;color:var(--al);">15</span> at</span>
-        <span style="font-size:9px;color:var(--tx);" title="Área milho"><span style="font-size:11px;font-weight:700;">25k</span> ha</span>
-        <span style="font-size:9px;color:var(--green);" title="Penetração ForSeed"><span class="hcn" style="font-size:11px;color:var(--green);" id="hc-pen-al">3,640</span>ha·<span style="font-size:10px;font-weight:700;">14.6%</span></span>
+    <div style="display:flex;flex-direction:column;padding:3px 9px;border-right:1px solid var(--b2);flex:1;min-width:0;">
+      <span style="font-size:8px;font-weight:800;color:var(--al);letter-spacing:1.5px;">AL</span>
+      <div style="display:flex;gap:6px;align-items:baseline;flex-wrap:nowrap;">
+        <span title="Municípios contrato"><span style="font-size:11px;font-weight:700;color:var(--dm);">102</span><span style="font-size:7px;color:var(--dm);margin-left:1px;">cont</span></span>
+        <span title="Municípios ativos"><span style="font-size:11px;font-weight:700;color:var(--al);">15</span><span style="font-size:7px;color:var(--al);margin-left:1px;">at</span></span>
+        <span title="Área milho total"><span style="font-size:11px;font-weight:700;color:var(--tx);">25k</span><span style="font-size:7px;color:var(--dm);margin-left:1px;">ha</span></span>
+        <span title="Penetração ForSeed"><span style="font-size:11px;font-weight:700;color:var(--green);" id="hc-pen-al">3,640</span><span style="font-size:7px;color:var(--green);margin-left:1px;">14.6%</span></span>
       </div>
     </div>
 
     <!-- PE -->
-    <div style="display:flex;flex-direction:column;padding:2px 8px;border-right:1px solid var(--b2);min-width:0;flex:1;">
-      <span style="font-size:8px;font-weight:800;color:var(--pe);letter-spacing:1.5px;margin-bottom:2px;">PE</span>
-      <div style="display:flex;gap:5px;flex-wrap:nowrap;">
-        <span style="font-size:9px;color:var(--dm);" title="Contrato"><span style="font-size:11px;font-weight:700;color:var(--dm);">120</span> cont</span>
-        <span style="font-size:9px;color:var(--pe);" title="Ativos"><span style="font-size:11px;font-weight:700;color:var(--pe);">3</span> at</span>
-        <span style="font-size:9px;color:var(--tx);" title="Área milho"><span style="font-size:11px;font-weight:700;">3k</span> ha</span>
-        <span style="font-size:9px;color:var(--green);" title="Penetração ForSeed"><span class="hcn" style="font-size:11px;color:var(--green);" id="hc-pen-pe">0</span>ha·<span style="font-size:10px;font-weight:700;">0%</span></span>
+    <div style="display:flex;flex-direction:column;padding:3px 9px;border-right:1px solid var(--b2);flex:1;min-width:0;">
+      <span style="font-size:8px;font-weight:800;color:var(--pe);letter-spacing:1.5px;">PE</span>
+      <div style="display:flex;gap:6px;align-items:baseline;flex-wrap:nowrap;">
+        <span title="Municípios contrato"><span style="font-size:11px;font-weight:700;color:var(--dm);">120</span><span style="font-size:7px;color:var(--dm);margin-left:1px;">cont</span></span>
+        <span title="Municípios ativos"><span style="font-size:11px;font-weight:700;color:var(--pe);">3</span><span style="font-size:7px;color:var(--pe);margin-left:1px;">at</span></span>
+        <span title="Área milho total"><span style="font-size:11px;font-weight:700;color:var(--tx);">3k</span><span style="font-size:7px;color:var(--dm);margin-left:1px;">ha</span></span>
+        <span title="Penetração ForSeed"><span style="font-size:11px;font-weight:700;color:var(--green);" id="hc-pen-pe">0</span><span style="font-size:7px;color:var(--green);margin-left:1px;">0%</span></span>
       </div>
     </div>
 
     <!-- Avaliações -->
-    <div style="display:flex;flex-direction:column;padding:2px 8px;min-width:0;flex-shrink:0;">
-      <span style="font-size:8px;color:var(--dm);letter-spacing:0.5px;margin-bottom:2px;">50 testes · 37 cli</span>
-      <div style="display:flex;gap:6px;align-items:center;">
-        <span><span class="hcn" style="font-size:12px;color:var(--ok);"     id="hc-ok">0</span><span style="color:var(--ok);font-size:9px;">●</span></span>
-        <span><span class="hcn" style="font-size:12px;color:var(--warn);"   id="hc-pend">0</span><span style="color:var(--warn);font-size:9px;">●</span></span>
-        <span><span class="hcn" style="font-size:12px;color:var(--danger);" id="hc-atrs">0</span><span style="color:var(--danger);font-size:9px;">●</span></span>
-        <span><span class="hcn" style="font-size:12px;color:var(--gray);"   id="hc-sem">0</span><span style="color:var(--gray);font-size:9px;">●</span></span>
+    <div style="display:flex;flex-direction:column;padding:3px 9px;flex-shrink:0;">
+      <span style="font-size:8px;color:var(--dm);letter-spacing:0.5px;">50 testes · 37 cli</span>
+      <div style="display:flex;gap:5px;align-items:center;">
+        <span><span style="font-size:12px;font-weight:700;color:var(--ok);"    id="hc-ok">0</span><span style="font-size:8px;color:var(--ok);">●</span></span>
+        <span><span style="font-size:12px;font-weight:700;color:var(--warn);"  id="hc-pend">0</span><span style="font-size:8px;color:var(--warn);">●</span></span>
+        <span><span style="font-size:12px;font-weight:700;color:var(--danger);"id="hc-atrs">0</span><span style="font-size:8px;color:var(--danger);">●</span></span>
+        <span><span style="font-size:12px;font-weight:700;color:var(--gray);"  id="hc-sem">0</span><span style="font-size:8px;color:var(--gray);">●</span></span>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- ── LINHA 2: filtros ── -->
+<!-- FILTROS -->
 <div class="hrow2">
   <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
   <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
@@ -296,7 +301,6 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
   <button class="f-reset" onclick="resetAll()">✕ Limpar</button>
   <span class="f-result" id="f-result"></span>
 </div>
-
 </div>
 
 <div id="mwrap">
