@@ -184,105 +184,88 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-seri
 
 <div id="hdr">
   <div class="hrow1">
-    <div class="brand">
+    <!-- BRAND -->
+    <div class="brand" style="gap:7px;">
       <div class="bdg">HD AGRO</div>
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:34px;height:34px;flex-shrink:0;" title="ForSeed">
-  <!-- Anel branco externo -->
-  <circle cx="50" cy="50" r="49" fill="white"/>
-  <!-- Fundo do ícone -->
-  <circle cx="50" cy="50" r="44" fill="#1e4d5a"/>
-  <!-- Fatia verde escura — superior esquerda (tipo aba dobrando) -->
-  <path d="M50,50 L18,22 Q28,8 50,8 L50,50Z" fill="#2d6b5a"/>
-  <!-- Fatia verde média — maior, superior direita + meio -->
-  <path d="M50,50 L50,8 Q72,8 82,22 Q92,36 88,58 L50,50Z" fill="#6abf8a"/>
-  <!-- Fatia amarela — inferior direita -->
-  <path d="M50,50 L88,58 Q84,78 68,88 Q52,96 30,86 L50,50Z" fill="#f5c020"/>
-  <!-- Fatia verde escura — inferior esquerda -->
-  <path d="M50,50 L30,86 Q14,76 10,58 Q7,40 18,22 L50,50Z" fill="#2d6b5a"/>
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;flex-shrink:0;">
+  <!-- Anel externo verde médio -->
+  <circle cx="50" cy="50" r="49" fill="#6abf8a"/>
+  <!-- Anel branco fino -->
+  <circle cx="50" cy="50" r="43" fill="white"/>
+  <!-- Fundo verde escuro -->
+  <circle cx="50" cy="50" r="40" fill="#1e4d5a"/>
+  <!-- Pétala esquerda verde escura — aponta sup-esq, base no centro -->
+  <path d="M50,50 Q28,42 22,18 Q34,10 50,14 Q52,30 50,50Z" fill="#2d6b5a"/>
+  <!-- Semicírculo amarelo — quadrante superior direito -->
+  <path d="M50,50 Q50,16 72,20 Q84,30 80,50Z" fill="#f5c020"/>
+  <!-- Faixa verde média — diagonal centro para baixo-direita -->
+  <path d="M50,50 Q60,56 72,72 Q60,84 42,82 Q30,70 50,50Z" fill="#6abf8a"/>
+  <!-- Pétala verde escura pequena — inferior direita -->
+  <path d="M50,50 Q80,52 80,50 Q84,64 72,72 Q60,56 50,50Z" fill="#2d6b5a"/>
 </svg>
-      <div style="display:flex;flex-direction:column;gap:1px;">
-        <div style="font-size:10px;font-weight:700;color:var(--tx);letter-spacing:1.5px;">NORDESTE</div>
-        <div style="font-size:8px;color:var(--green);letter-spacing:0.5px;font-weight:600;">BA · AL · PE</div>
+      <div style="display:flex;flex-direction:column;gap:0px;line-height:1.2;">
+        <span style="font-size:11px;font-weight:800;color:var(--tx);letter-spacing:2px;">NORD</span>
+        <span style="font-size:8px;color:var(--green);letter-spacing:1px;">BA · AL · PE</span>
       </div>
     </div>
-    <div class="hstats">
 
-      <!-- CONTRATO -->
-      <div class="hcard" style="flex-direction:column;align-items:flex-start;gap:3px;">
-        <span style="font-size:7px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;font-weight:700;">📋 Contrato</span>
-        <div style="display:flex;gap:6px;align-items:baseline;">
-          <div class="hci"><span class="hcn" style="color:var(--ba);font-size:14px;">58</span><span class="hcl">BA</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--al);font-size:14px;">102</span><span class="hcl">AL</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--pe);font-size:14px;">120</span><span class="hcl">PE</span></div>
-          <div class="hci" style="margin-left:2px;"><span class="hcn" style="color:var(--dm);font-size:12px;">280</span><span class="hcl">mun.</span></div>
-        </div>
-      </div>
+    <!-- STATS — visual compacto por estado -->
+    <div style="display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-left:auto;">
 
-      <div class="hsep"></div>
-
-      <!-- ATIVOS -->
-      <div class="hcard" style="flex-direction:column;align-items:flex-start;gap:3px;">
-        <span style="font-size:7px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;font-weight:700;">🌽 Ativos</span>
-        <div style="display:flex;gap:6px;align-items:baseline;">
-          <div class="hci"><span class="hcn" style="color:var(--ba);font-size:14px;">24</span><span class="hcl">BA</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--al);font-size:14px;">15</span><span class="hcl">AL</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--pe);font-size:14px;">3</span><span class="hcl">PE</span></div>
-          <div class="hci" style="margin-left:2px;"><span class="hcn" style="color:var(--dm);font-size:12px;">42</span><span class="hcl">mun.</span></div>
-        </div>
-      </div>
-
-      <div class="hsep"></div>
-
-      <!-- ÁREA MILHO -->
-      <div class="hcard" style="flex-direction:column;align-items:flex-start;gap:3px;">
-        <span style="font-size:7px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;font-weight:700;">🌾 Área Milho</span>
-        <div style="display:flex;gap:6px;align-items:baseline;">
-          <div class="hci"><span class="hcn" style="color:var(--ba);font-size:14px;">100k</span><span class="hcl">BA</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--al);font-size:14px;">25k</span><span class="hcl">AL</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--pe);font-size:14px;">3k</span><span class="hcl">PE</span></div>
-          <div class="hci" style="margin-left:2px;"><span class="hcn" style="color:var(--dm);font-size:12px;">128k</span><span class="hcl">ha</span></div>
-        </div>
-      </div>
-
-      <div class="hsep"></div>
-
-      <!-- PENETRAÇÃO -->
-      <div class="hcard" style="flex-direction:column;align-items:flex-start;gap:3px;">
-        <span style="font-size:7px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;font-weight:700;">🎯 Penetração ForSeed</span>
-        <div style="display:flex;gap:6px;align-items:baseline;">
-          <div class="hci">
-            <span class="hcn" style="color:var(--ba);font-size:13px;" id="hc-pen-ba">12.840</span>
-            <span class="hcl" style="color:var(--ba);">12.8% BA</span>
+      <!-- Card por estado: 3 colunas -->
+      <div class="hcard" style="flex-direction:column;gap:4px;padding:4px 10px;">
+        <div style="font-size:7px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;text-align:center;">Contrato · Ativos · Área · Penetração</div>
+        <div style="display:flex;gap:10px;">
+          <!-- BA -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:1px;border-right:1px solid var(--b2);padding-right:10px;">
+            <span style="font-size:8px;font-weight:700;color:var(--ba);letter-spacing:1px;">BA</span>
+            <div style="display:flex;gap:6px;align-items:baseline;">
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--dm);">58</span><span class="hcl">cont.</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--ba);">24</span><span class="hcl">ativos</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--tx);">100k</span><span class="hcl">ha</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--green);" id="hc-pen-ba">12,840</span><span class="hcl" style="color:var(--green);">12.8%</span></div>
+            </div>
           </div>
-          <div class="hci">
-            <span class="hcn" style="color:var(--al);font-size:13px;" id="hc-pen-al">3.640</span>
-            <span class="hcl" style="color:var(--al);">14.6% AL</span>
+          <!-- AL -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:1px;border-right:1px solid var(--b2);padding-right:10px;">
+            <span style="font-size:8px;font-weight:700;color:var(--al);letter-spacing:1px;">AL</span>
+            <div style="display:flex;gap:6px;align-items:baseline;">
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--dm);">102</span><span class="hcl">cont.</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--al);">15</span><span class="hcl">ativos</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--tx);">25k</span><span class="hcl">ha</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--green);" id="hc-pen-al">3,640</span><span class="hcl" style="color:var(--green);">14.6%</span></div>
+            </div>
           </div>
-          <div class="hci">
-            <span class="hcn" style="color:var(--pe);font-size:13px;" id="hc-pen-pe">0</span>
-            <span class="hcl" style="color:var(--pe);">0% PE</span>
+          <!-- PE -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
+            <span style="font-size:8px;font-weight:700;color:var(--pe);letter-spacing:1px;">PE</span>
+            <div style="display:flex;gap:6px;align-items:baseline;">
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--dm);">120</span><span class="hcl">cont.</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--pe);">3</span><span class="hcl">ativos</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--tx);">3k</span><span class="hcl">ha</span></div>
+              <div class="hci"><span class="hcn" style="font-size:13px;color:var(--green);" id="hc-pen-pe">0</span><span class="hcl" style="color:var(--green);">0%</span></div>
+            </div>
           </div>
-          <div class="hci" style="margin-left:2px;"><span style="font-size:7px;color:var(--dm);">ha testado</span></div>
         </div>
       </div>
 
       <div class="hsep"></div>
 
-      <!-- AVALIAÇÕES -->
-      <div class="hcard" style="flex-direction:column;align-items:flex-start;gap:3px;">
-        <span style="font-size:7px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;font-weight:700;">📊 Avaliações · 50 testes · 37 cli</span>
-        <div style="display:flex;gap:6px;align-items:baseline;">
-          <div class="hci"><span class="hcn" style="color:var(--ok);font-size:14px;"    id="hc-ok">0</span><span class="hcl" style="color:var(--ok);">●</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--warn);font-size:14px;"  id="hc-pend">0</span><span class="hcl" style="color:var(--warn);">●</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--danger);font-size:14px;"id="hc-atrs">0</span><span class="hcl" style="color:var(--danger);">●</span></div>
-          <div class="hci"><span class="hcn" style="color:var(--gray);font-size:14px;"  id="hc-sem">0</span><span class="hcl" style="color:var(--gray);">●</span></div>
+      <!-- Avaliações -->
+      <div class="hcard" style="flex-direction:column;gap:4px;padding:4px 10px;">
+        <div style="font-size:7px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;text-align:center;">50 testes · 37 clientes</div>
+        <div style="display:flex;gap:8px;align-items:baseline;">
+          <div class="hci"><span class="hcn" style="font-size:14px;color:var(--ok);"    id="hc-ok">0</span><span class="hcl" style="color:var(--ok);">●</span></div>
+          <div class="hci"><span class="hcn" style="font-size:14px;color:var(--warn);"  id="hc-pend">0</span><span class="hcl" style="color:var(--warn);">●</span></div>
+          <div class="hci"><span class="hcn" style="font-size:14px;color:var(--danger);"id="hc-atrs">0</span><span class="hcl" style="color:var(--danger);">●</span></div>
+          <div class="hci"><span class="hcn" style="font-size:14px;color:var(--gray);"  id="hc-sem">0</span><span class="hcl" style="color:var(--gray);">●</span></div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- FILTER ROW -->
+  <!-- FILTROS -->
   <div class="hrow2">
     <button class="fchip st-al" id="chip-al" onclick="toggleChip('estado','AL',this)">AL</button>
     <button class="fchip st-ba" id="chip-ba" onclick="toggleChip('estado','BA',this)">BA</button>
@@ -523,7 +506,25 @@ document.addEventListener('DOMContentLoaded',function(){
     else if(k==='bd'){bdOn=!bdOn;bdOn?map.addLayer(bdL):map.removeLayer(bdL);b.classList.toggle('on',bdOn);}
   };
 
-  function avProgress(t){function step(done,lbl){return '<div style="flex:1;text-align:center;"><div style="height:6px;border-radius:3px;background:'+(done?'#22c55e':'rgba(255,255,255,0.1)')+';margin-bottom:3px;"></div><div style="font-size:8px;color:'+(done?'#22c55e':'var(--dm)')+'">'+lbl+'</div></div>';}return '<div style="display:flex;gap:4px;margin:8px 0 4px;">'+step(!!t.av1,'AV1')+step(!!t.av2,'AV2')+step(!!(t.av3),'AV3')+step(!!(t.av4),'Colheita')+'</div>';}
+  function avProgress(t){
+    function step(done,lbl,link){
+      var bar='<div style="height:6px;border-radius:3px;background:'+(done?'#22c55e':'rgba(255,255,255,0.1)')+';margin-bottom:3px;"></div>';
+      var txt='<div style="font-size:8px;color:'+(done?'#22c55e':'var(--dm)')+'">'+lbl+'</div>';
+      var inner=bar+txt;
+      if(done&&link){
+        return '<div style="flex:1;text-align:center;cursor:pointer;" onclick="window.open(\'' +link+ '\',\'_blank\')" title="Abrir pasta '+lbl+'">'+inner+'</div>';
+      }
+      return '<div style="flex:1;text-align:center;">'+inner+'</div>';
+    }
+    // AV folder links — use OneDrive base + AV subfolder pattern
+    var base=t.pasta_onedrive||'';
+    return '<div style="display:flex;gap:4px;margin:8px 0 4px;">'+
+      step(!!t.av1,'AV1',base)+
+      step(!!t.av2,'AV2',base)+
+      step(!!(t.av3),'AV3',base)+
+      step(!!(t.av4),'Colheita',base)+
+    '</div>';
+  }
   function statusBadge(t){var c2=ST_COLOR[t.status]||'#6b7280';return '<div class="av-badge" style="background:'+c2+'22;border:1px solid '+c2+'55;color:'+c2+';">'+(ST_LABEL[t.status]||t.status)+'</div>';}
 
   function opP(name,est,tier){
@@ -590,12 +591,54 @@ document.addEventListener('DOMContentLoaded',function(){
         (t.av2?'<div class="pr"><span class="prl">AV2 ✅</span><span class="prv" style="color:#22c55e;">'+t.av2+(t.av2_dias?' ('+t.av2_dias+'d)':'')+'</span></div>':'')+
       '</div>'+
       locSec+
-      '<div class="ps"><div class="pst">📂 Arquivos e Contato</div>'+waBtn+odBtn+'</div>';
+      '<div class="ps"><div class="pst">📂 Arquivos e Contato</div>'+waBtn+odBtn+
+      '<div style="display:flex;gap:4px;margin-top:6px;">'+
+        '<button onclick="capturePhoto(t)" style="flex:1;padding:7px 4px;background:rgba(106,191,138,0.1);border:1px solid rgba(106,191,138,0.3);border-radius:5px;color:var(--green);font-size:11px;font-weight:600;cursor:pointer;">📸 Foto</button>'+
+        '<button onclick="markGPS(t)" style="flex:1;padding:7px 4px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:5px;color:#60a5fa;font-size:11px;font-weight:600;cursor:pointer;">📌 GPS</button>'+
+      '</div>'+
+    '</div>';
     document.getElementById('pnl').classList.add('open');
     if(t.lat&&t.has_real_coords)map.flyTo([t.lat,t.lng],14,{duration:0.6});
     else if(t.lat)map.flyTo([t.lat,t.lng],11,{duration:0.6});
   };
 
+  window.capturePhoto=function(t){
+    // Open camera via file input
+    var inp=document.createElement('input');
+    inp.type='file';inp.accept='image/*';inp.capture='environment';
+    inp.onchange=function(e){
+      var file=e.target.files[0];if(!file)return;
+      var msg='📸 Foto capturada: '+file.name+'\nTeste: '+t.produtor+' · '+t.hibrido+'\nMunicípio: '+t.municipio;
+      // If has OneDrive link, offer to save
+      if(t.pasta_onedrive){
+        toast('📸 Foto tirada! Acesse a pasta OneDrive para salvar.');
+        setTimeout(function(){window.open(t.pasta_onedrive,'_blank');},1200);
+      } else {
+        toast('📸 Foto tirada: '+file.name);
+      }
+    };
+    inp.click();
+  };
+  window.markGPS=function(t){
+    if(!navigator.geolocation){toast('GPS não disponível');return;}
+    toast('📌 Obtendo localização...');
+    navigator.geolocation.getCurrentPosition(function(pos){
+      var lat=pos.coords.latitude.toFixed(6);
+      var lng=pos.coords.longitude.toFixed(6);
+      var acc=Math.round(pos.coords.accuracy);
+      var msg='Produtor: '+t.produtor+'\nHíbrido: '+t.hibrido+'\nLat: '+lat+'\nLng: '+lng+'\nPrecisão: '+acc+'m';
+      // Copy to clipboard
+      if(navigator.clipboard){
+        navigator.clipboard.writeText(lat+', '+lng).then(function(){
+          toast('📌 GPS copiado: '+lat+', '+lng+' (±'+acc+'m)');
+        });
+      } else {
+        toast('📌 '+lat+', '+lng+' (±'+acc+'m)');
+      }
+      // Fly to location
+      if(map) map.flyTo([parseFloat(lat),parseFloat(lng)],15,{duration:1});
+    },function(){toast('❌ Não foi possível obter GPS');},{enableHighAccuracy:true,timeout:10000});
+  };
   window.clsP=function(){document.getElementById('pnl').classList.remove('open');map.panBy([-147,0],{animate:true,duration:0.3});};
   var _tt;window.toast=function(msg){var el=document.getElementById('toast-el');el.textContent=msg;el.classList.add('show');clearTimeout(_tt);_tt=setTimeout(function(){el.classList.remove('show');},1400);};
   document.addEventListener('keydown',function(e){if(e.key==='Escape')clsP();if(e.key==='/'&&e.target.tagName!=='INPUT'){e.preventDefault();document.getElementById('srch').focus();}});
